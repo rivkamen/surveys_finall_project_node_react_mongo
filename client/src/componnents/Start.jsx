@@ -165,7 +165,7 @@ const Start=()=>{
         useEffect(()=>{
         if(loginSuccess){    
         dispatch(setToken(data))
-        navigate('/Surveys')
+        navigate('/')
            
     }
     else{

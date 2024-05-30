@@ -1,6 +1,8 @@
 const HomePage=()=>{
     return(
-        <>home</>
+        <div style={{height:'500px'}}>
+        </div>
+       
     )
 }
 export default HomePage

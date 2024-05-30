@@ -18,19 +18,21 @@ const usereSchema=new mongoose.Schema({
     },
     birthDate:{
         type:Date,
-        immuteable:true
+        immuteable:true,
+        default:null
     },
        
     sex:{
         type:String,
-        enum:["זכר","נקבה"],
-
+        enum:["זכר","נקבה","לא נבחר"],
+default:"לא נבחר"
 
     },
     sector:{
         type:String,
-        enum:["חרדי","חילוני","דתי לאומי","מסורתי","לא משתייך"],
-        
+        enum:["חרדי","חילוני","דתי לאומי","מסורתי","לא משתייך","לא נבחר"],
+        default:"לא נבחר"
+
     },
     email:{
         type:String,

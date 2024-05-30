@@ -197,11 +197,12 @@ const Regist = (props) => {
     var username = useRef('')
     var email = useRef('')
     const register = (e) => {
-        console.log("lllllllllll");
         //e.preventDefault();
-        console.log(sector.current.value.name);
-        registerFunc({ name: name.current.value, username: username.current.value, password: password.current.value, birthDate: birthDate.current.value, email: email.current.value, sex: sex.current.value, sector: sector.current.value.name })
+        if(sector?.current?.value?.name){sector=sector?.current?.value?.name}else{sector=undefined}
+        registerFunc({name:name.current.value, username:username.current.value, password:password.current.value, birthDate:birthDate.current.value, email:email.current.value, sex:sex.current.value, sector:sector})
+
     };
+
     const [value, setValue] = useState('');
     const [date, setDate] = useState(null);
     const [ingredient, setIngredient] = useState('');
@@ -244,8 +245,7 @@ const Regist = (props) => {
                 console.log("name");
                 console.log(data);
                 errors.name = 'שדה חובה';
-                //         errors.username = 'שדה חובה';
-                //    errors.password = 'שדה חובה';
+                
 
             }
             if (!data.username) {
@@ -255,17 +255,14 @@ const Regist = (props) => {
                 errors.username = 'שדה חובה';
             } if (!data.password) {
                 console.log("password");
-
-                console.log(errors.password);
                 errors.password = 'שדה חובה';
             }
+            console.log(data);
 
 
             return errors;
         },
         onSubmit: async () => {
-
-            console.log('onSubmit');
             await register();
             setVisible(false)
 
@@ -279,8 +276,8 @@ const Regist = (props) => {
     /****************************************************************************************** */
     const footerContent = (
         <div>
-            <Button label="No" icon="pi pi-times" onClick={() => setVisible(false)} className="p-button-text" />
-            <Button label="Yes" icon="pi pi-check" type='submit' onClick={() => { formik.handleSubmit() }} autoFocus />
+            <Button label="בטל" icon="pi pi-times" onClick={() => setVisible(false)} className="p-button-text" />
+            <Button label="כניסה" icon="pi pi-check" type='submit' onClick={formik.handleSubmit} autoFocus />
         </div>
     );
 
@@ -288,14 +285,14 @@ const Regist = (props) => {
         <div className="newUser">
 
 
-            <Dialog header="Header" visible={visible} style={{ minWidth: '30vw', maxWidth: '50vw', textAlign: 'center' }} onHide={() => setVisible(false)} footer={footerContent}>
+            <Dialog header="הרשמה" visible={visible} style={{ minWidth: '30vw', maxWidth: '50vw', textAlign: 'center' }} onHide={() => setVisible(false)} footer={footerContent}>
                 <div>
                     <div className="inline-flex flex-column gap-2">
                         <label htmlFor="name" className="font-semibold">
                             name
                         </label>
 
-                        <AutoComplete id="name" style={{ width: '400px' }} label="Name" /*className="bg-white-alpha-20 border-#black p-3"*/ inputRef={name} value={formik.values.name} /*placeholder={title.current}*/
+                        <AutoComplete id="name1" style={{ width: '400px' }} label="Name" /*className="bg-white-alpha-20 border-#black p-3"*/ inputRef={name} value={formik.values.name} /*placeholder={title.current}*/
                             name='name'
                             className={classNames({ 'p-invalid': isFormFieldInvalid('name') })}
                             onChange={(e) => {
@@ -311,7 +308,7 @@ const Regist = (props) => {
                         <label htmlFor="username" className="font-semibold">
                             Username
                         </label>
-                        <AutoComplete style={{ width: '400px' }} id="username" label="Username" /*className="bg-white-alpha-20 border-#black p-3"*/ inputRef={username} value={formik.values.username}
+                        <AutoComplete style={{ width: '400px' }} id="username1" label="Username" /*className="bg-white-alpha-20 border-#black p-3"*/ inputRef={username} value={formik.values.username}
                             name='username'
                             className={classNames({ 'p-invalid': isFormFieldInvalid('username') })}
                             onChange={(e) => {
@@ -325,7 +322,7 @@ const Regist = (props) => {
                         <label htmlFor="password" className="font-semibold">
                             password
                         </label>
-                        <Password style={{ width: '400px', height: '50px' }} value={formik.values.password} toggleMask
+                        <Password id="password1" style={{ width: '400px', height: '50px' }} value={formik.values.password} toggleMask
                             promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password"
                             inputRef={password}
                             name="password"
@@ -344,13 +341,13 @@ const Regist = (props) => {
                         <label htmlFor="birthDate" className="font-semibold">
                             birthDate
                         </label>
-                        <Calendar style={{ width: '400px', height: '50px' }} value={date} onChange={(e) => setDate(e.value)} locale="es" inputRef={birthDate} />
-                    </div><br /><br /><br />
+                        <Calendar id='calendar1' style={{ width: '400px', height: '50px' }} value={date} onChange={(e) => setDate(e.value)} locale="es" inputRef={birthDate} />
+                    </div><br /><br /><br /><br />
                     <div className="inline-flex flex-column gap-2">
                         <label htmlFor="email" className="font-semibold">
                             email
                         </label>
-                        <InputText style={{ width: '400px' }} id="email" label="Email" keyfilter="email" className="bg-white-alpha-20 border-#black p-3" ref={email}>
+                        <InputText style={{ width: '400px' }} id="email1" label="Email" keyfilter="email" className="" ref={email}>
 
                         </InputText>
                     </div><br /><br />

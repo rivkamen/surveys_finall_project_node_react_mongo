@@ -14,6 +14,8 @@ import { useAddUserSurveyMutation } from "./usersApiSlice"
 import { Navigate } from "react-router-dom"
 const UserSurvey = (props) => {
     const { setVisible, visible, refetch, survey, user } = props
+    console.log("111111111111111111111111111111111111111111111111111111");
+    console.log(user);
     // const Request = async () => {
 //         const ans = await axios("http://localhost:6125/api/functionToken/" + localStorage.getItem("token"))
 // console.log('vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv');
@@ -42,11 +44,7 @@ const UserSurvey = (props) => {
         console.log("count");
     }
     const addSurveyForUser = () => {
-
-        
-        console.log(user);
         addUserSurveyFunc({_id: user._id, survey: survey })
-        console.log("addSurveyForUser");
 
     }
 

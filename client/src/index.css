@@ -113,3 +113,20 @@ div {
   font-family: 'Yehuda CLM';
 font-weight: 600;
 font-size: medium;}
+
+#password1,#calendar1,#username1,#email1, #name1 .p-autocomplete-input, #username1 .p-autocomplete-input{
+  width:100%;
+  height: 50px;
+  border-color:#14B8A6;
+
+ }
+ .p-inputtext, .p-component{
+  border-color:#14B8A6;
+ }
+ #pr_id_193_header{
+  font-family: 'Yehuda CLM';
+ }
+ /*.p-dialog-content, .p-dialog-header, .p-dialog-footer{
+  background-color:#14B8A6;
+
+ } */

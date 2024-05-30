@@ -21,7 +21,6 @@ const login=async(req,res)=>{
 }
 const register=async(req,res)=>{
    
-
     const {username,password,name,birthDate,sex,sector,email} = req.body
    
     let roles;
