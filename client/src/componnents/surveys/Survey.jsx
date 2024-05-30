@@ -165,7 +165,7 @@ const[ages,setAges]=useState(survey.age);
         <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?למי מיועד הסקר</h2>
         
          <PanelMenu model={items} className="w-full md:w-20rem"></PanelMenu>
-         <Accordion className="w-full md:w-20rem">
+         <Accordion className="w-full md:w-20rem" activeIndex={[1]}>
     <AccordionTab header={<div><i className='pi pi-sort-numeric-up-alt'></i>&nbsp;&nbsp;גיל</div>}>
             <div>
                 <InputText value={ages} onChange={(e) => setAges(e.target.value)} className="w-full" disabled/>

@@ -42,7 +42,10 @@ const UserSurvey = (props) => {
         console.log("count");
     }
     const addSurveyForUser = () => {
-        addUserSurveyFunc({ _id: user._id, survey: survey })
+
+        
+        console.log(user);
+        addUserSurveyFunc({_id: user._id, survey: survey })
         console.log("addSurveyForUser");
 
     }
@@ -69,7 +72,8 @@ const UserSurvey = (props) => {
 
 
                 <div dir='rtl' style={{ position: 'sticky', top: 200, fontSize: '20px', fontFamily: 'Yehuda CLM', top: '10px' }}>
-                    <div style={{ fontSize: '30px', fontFamily: 'Yehuda CLM', backgroundColor: "white", textAlign: 'center', top: '10px', position: 'sticky' }}>{survey.title}</div><br /><br />
+
+                    <div style={{fontWeight:'bold',fontSize: '30px', fontFamily: 'Yehuda CLM', backgroundColor: "white", textAlign: 'center', top: '0px', position: 'sticky' }}>{survey.title}</div><br /><br />
                     {survey?.questions.map(q => <UserQuestion select={select} setSelect={setSelect} refetch={refetch} question={q} survey={survey} />)}
 
                 </div> <div style={{ flex: 1 }}> {/* This creates space to push the footer to the bottom */}

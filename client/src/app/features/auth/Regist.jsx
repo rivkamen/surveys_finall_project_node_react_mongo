@@ -199,7 +199,8 @@ const Regist = (props) => {
     const register = (e) => {
         console.log("lllllllllll");
         //e.preventDefault();
-        registerFunc({ name: name.current.value, username: username.current.value, password: password.current.value, birthDate: birthDate.current.value, email: email.current.value, sex: sex.current.value, sector: sector.current.value })
+        console.log(sector.current.value.name);
+        registerFunc({ name: name.current.value, username: username.current.value, password: password.current.value, birthDate: birthDate.current.value, email: email.current.value, sex: sex.current.value, sector: sector.current.value.name })
     };
     const [value, setValue] = useState('');
     const [date, setDate] = useState(null);
@@ -315,7 +316,6 @@ const Regist = (props) => {
                             className={classNames({ 'p-invalid': isFormFieldInvalid('username') })}
                             onChange={(e) => {
                                 setTextu(e.value)
-                                console.log(textu);
                                 formik.setFieldValue('username', e.value);
                             }}
                         />
@@ -333,7 +333,6 @@ const Regist = (props) => {
                             onChange={(e) => {
                                 setValue(e.target.value)
                                 setTextp(e.target.value)
-                                console.log(textp);
                                 formik.setFieldValue('password', e.target.value);
                             }}
                         />

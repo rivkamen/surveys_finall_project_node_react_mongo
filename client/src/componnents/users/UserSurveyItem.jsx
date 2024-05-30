@@ -12,6 +12,7 @@ import { Divider } from 'primereact/divider';
 import DeleteDialog from '../surveys/DeleteDialog';
 import { useChangeStatusMutation } from '../surveys/surveysApiSlice';
 import { Card } from 'primereact/card';
+import 'primeicons/primeicons.css';
 
 const UserSurveyItem=(props)=> {
     console.log(props);
@@ -62,7 +63,7 @@ const UserSurveyItem=(props)=> {
      
          {/* {del && <DeleteDialog refetch={refetch} survey={survey}/>} */}
         <Dialog 
-            header={survey.title} 
+            header={<div>סקר<i className="pi-file-edit"></i></div>}
             visible={visible} style={{ width: '50vw', height:'100vw' }} onHide={() => setVisible(false)}>
             <p className="m-0">
                 <UserSurvey user={user} visible={visible}  setVisible={setVisible} refetch={refetch} survey={survey}/>

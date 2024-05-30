@@ -166,15 +166,7 @@ const Start=()=>{
         if(loginSuccess){    
         dispatch(setToken(data))
         navigate('/Surveys')
-            // if(userIsSuccess){
-            //     myUser.roles=='admin'?setRole(2):setRole(1)
-            //     //myUser.roles=='admin'?navigate('/NavBar'):navigate('/UsersNavBar')//setAdmin(true):setAdmin(false)
-            //     //navigate('/NavBar')
-            // }  
-            //navigate('/UsersNavBar')
-        // {<UsersNavBar/>}
-        // setLoginSuccess(true)
-      //navigate(data.roles==='admin'?'/Surveys':'UsersNavBar')
+           
     }
     else{
 

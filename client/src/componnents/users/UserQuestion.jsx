@@ -51,7 +51,7 @@ const categories = bodyAnswers
            
         // </div>
 <>
-<Fieldset legend={<span style={{backgroundColor:'#61dafb',fontFamily:'Yehuda CLM',minWidth:'160px', textAlign:'center',minHeight:'15px', fontSize:'20px'}}>{question.body} </span>}>
+<Fieldset legend={<span style={{fontFamily:'Yehuda CLM',minWidth:'160px', textAlign:'center',minHeight:'15px', fontSize:'20px'}}>{question.body} </span>}>
     <p className="m-0"  >
       
    
