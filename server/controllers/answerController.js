@@ -106,8 +106,8 @@ const deleteAnswer=async(req,res)=>{
             user.sector=='דתי לאומי'?answer.sector.datal+=1:
             answer.sector.loMeshtaieh+=1
             
-            user.sex=='זכר'?answer.sex.male+=1:
-            answer.sex.female+=1
+            user.gender=='זכר'?answer.gender.male+=1:
+            answer.gender.female+=1
         
             const age=(Date.now()-user.birthDate)/1000/60/60/24/365
             age<=10?answer.age.tens+=1:

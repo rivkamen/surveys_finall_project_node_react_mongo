@@ -26,7 +26,7 @@
 // isError,
 // error,
 // refetch
-// } = useGetSurveysQuery({status:'',sector:'',sex:'',birthDate:''})
+// } = useGetSurveysQuery({status:'',sector:'',gender:'',birthDate:''})
 // const [currentSurvey,setCurrentSurvey]=useState('')
 // const [edit,setEdit]=useState(false)
 // const [add,setAdd]=useState(false)
@@ -237,7 +237,7 @@ const [visibleNew, setVisibleNew] = useState(false);
 return (
     <>
    
-    <div className="cardSurvey" style={{marginTop:'130px'}}> 
+    <div className="cardSurvey"> 
         <div style={{ display: 'flex' }}>
             <div style={{ flex: 1 /*,width:'80%'*/ }}>
                 <Button icon="pi pi-plus" style={{color:'#10bbbb', backgroundColor:'#e5e7eb', position:'fixed'}}label="&nbsp;סקר חדש&nbsp;" onClick={()=>{setVisibleNew(true)}}  rounded />

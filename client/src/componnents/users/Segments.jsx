@@ -10,7 +10,7 @@ import SegmentItem from './SegmentItem';
 import { ScrollTop } from 'primereact/scrolltop';
 const Segments=()=>{
 
-const {data :surveys=[],isLoading,isError,error, refetch}= useGetSurveysQuery({status:"completed",sector:'',sex:'',birthDate:''})
+const {data :surveys=[],isLoading,isError,error, refetch}= useGetSurveysQuery({status:"completed",sector:'',gender:'',birthDate:''})
 
 const [sortKey, setSortKey] = useState('');
 const [sortOrder, setSortOrder] = useState(0);

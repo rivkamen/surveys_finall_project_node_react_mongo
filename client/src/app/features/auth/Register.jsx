@@ -26,14 +26,14 @@ useRegisterMutation()
 var name=useRef('')      
 var password=useRef('')
 var birthDate=useRef('')
-var sex=useRef('')
+var gender=useRef('')
 var sector=useRef({key:'',name:''})
 var username=useRef('')
 var email=useRef('')
 var [visible, setVisible] = useState(true);
 const register = (e) => {
 //e.preventDefault();
-registerFunc({name:name.current.value, username:username.current.value, password:password.current.value, birthDate:birthDate.current.value, email:email.current.value, sex:sex.current.value, sector:sector.current.value })
+registerFunc({name:name.current.value, username:username.current.value, password:password.current.value, birthDate:birthDate.current.value, email:email.current.value, gender:gender.current.value, sector:sector.current.value })
 };
 const [value, setValue] = useState('');
 const [date, setDate] = useState(null);
@@ -127,24 +127,24 @@ return (
 
                             </InputText>
                         </div>
-                        <label htmlFor="sex" className="text-primary-50 font-semibold">
-                            sex 
+                        <label htmlFor="gender" className="text-primary-50 font-semibold">
+                            gender 
                             </label> 
                         <div className="bg-white-alpha-20 border-none p-3 text-primary-50">
                             
              <div className="flex align-items-center gap-2"> 
              
-                  <div className="flex align-items-center gap-2" ref={sex}> 
+                  <div className="flex align-items-center gap-2" ref={gender}> 
                   
                     <label htmlFor="ingredient2" className="ml-2">נקבה&nbsp;</label>
-                    <RadioButton inputId="ingredient2" name="female" value="נקבה" onChange={(e) => {setIngredient(e.value);sex.current.value=e.value}}
+                    <RadioButton inputId="ingredient2" name="female" value="נקבה" onChange={(e) => {setIngredient(e.value);gender.current.value=e.value}}
                      checked={ingredient === 'נקבה'} 
                      />
                  </div> 
                  <div className="flex align-items-center gap-2"> 
                
                      <label htmlFor="ingredient1" className="ml-2">זכר&nbsp;</label>
-                    <RadioButton inputId="ingredient1" name="male" value="זכר" onChange={(e) => {setIngredient(e.value);sex.current.value=e.value}} 
+                    <RadioButton inputId="ingredient1" name="male" value="זכר" onChange={(e) => {setIngredient(e.value);gender.current.value=e.value}} 
                     checked={ingredient === 'זכר'}
                    
                    />
@@ -167,7 +167,7 @@ return (
                         </div>
                     );
                 })}
-            </div>{console.log(`${name.current.value} ${username.current.value} ${password.current.value} ${birthDate.current.value} ${email.current.value} ${sex.current.value} ${sector.current.value}`)}
+            </div>{console.log(`${name.current.value} ${username.current.value} ${password.current.value} ${birthDate.current.value} ${email.current.value} ${gender.current.value} ${sector.current.value}`)}
         </div>
        
                         <div className="flex align-items-center gap-2">

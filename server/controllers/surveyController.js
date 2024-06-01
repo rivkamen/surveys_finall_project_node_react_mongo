@@ -1,9 +1,9 @@
 const Survey = require("../models/Survey");
 const add=async(req,res)=>{
     console.log("add server");
-    let {title,sex,sector,age,questions} = req.body
+    let {title,gender,sector,age,questions} = req.body
     // sector=='h'?sector='חרדי':sector=='hi'?sector='חילוני':sector=='l'?sector='לא משתייך':sector=='m'?sector='מסורתי':sector=='d'?sector='דתי לאומי':sector=null;
-    // sex=='m'?sex='זכר':sex=='f'?sex='נקבה':sex=null;
+    // gender=='m'?gender='זכר':gender=='f'?gender='נקבה':gender=null;
 console.log("survey");
     console.log("add survey");
     if (!title) {
@@ -16,7 +16,7 @@ console.log("survey");
         q.answers?.forEach(a=>{if(!a.body)  return res.status(409).json({message:"required"})}
         )
     })};
-    const survey = await Survey.create({title,sex,sector,age,questions})
+    const survey = await Survey.create({title,gender,sector,age,questions})
     if(survey){
         // if(questions)
         // {
@@ -78,10 +78,10 @@ const getSurveyById=async(req,res)=>{
 
 }
 const updateSurvey=async(req,res)=>{
-    const {_id,title,sex,sector,birthDate,age,questions}=req.body
+    const {_id,title,gender,sector,birthDate,age,questions}=req.body
     
    
-   sex?console.log(sex):console.log('!sex');
+   gender?console.log(gender):console.log('!gender');
    const survey=await Survey.findById(_id).exec()
 
     if(!survey){
@@ -91,12 +91,12 @@ const updateSurvey=async(req,res)=>{
         if(title){
             survey.title=title
         }
-             if(sex){
+             if(gender){
             const arr=['זכר','נקבה','לא מוגבל'];
-            const sexx=arr.find(s=>s==sex);
-            if(!sexx)
+            const genderx=arr.find(s=>s==gender);
+            if(!genderx)
             return res.status(401).json({message:"status is not valid"})
-            survey.sex=sex
+            survey.gender=gender
         }
         
         if(sector){

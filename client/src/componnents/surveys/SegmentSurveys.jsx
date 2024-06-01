@@ -9,7 +9,7 @@ const SegmentSurveys=()=>{
     isError,
     error,
     refetch
-    } = useGetSurveysQuery({status:status,sector:'',sex:'',birthDate:''})
+    } = useGetSurveysQuery({status:status,sector:'',gender:'',birthDate:''})
    
     return (
         <>

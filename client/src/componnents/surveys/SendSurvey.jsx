@@ -27,7 +27,7 @@
 //         const d=new Date(u.birthDate)
 
 //         const age=(Date.now()-d)/1000/60/60/24/365
-//                 return (u.sex===survey.data.sex || survey.data.sex==='לא מוגבל') &&
+//                 return (u.gender===survey.data.gender || survey.data.gender==='לא מוגבל') &&
 //         (u.sector===survey.data.sector || survey.data.sector==='לא מוגבל') && 
 //         (survey.data.age[0] <= age) &&
 //         (survey.data.age[1]>=age||survey.data.age==='')
@@ -50,7 +50,7 @@
  
 //    }
 //    const changestatus = async (e) => {
-//     // await addSurveyFunc({title:title.current.value,sex:selectedSex.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
+//     // await addSurveyFunc({title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
 //    changeStatusFunc({_id:survey?.data?._id,status:"in process"}).then(()=>refetch())
 //    window.location.reload(true)
 //    }
@@ -103,11 +103,11 @@ const SendSurvey=(props)=>{
         const d=new Date(u.birthDate)
         /**!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
         console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-console.log(u.sex);
+console.log(u.gender);
 console.log(survey);
 
         const age=(Date.now()-d)/1000/60/60/24/365
-                return (u.sex===survey.sex || survey.sex==='לא מוגבל') &&
+                return (u.gender===survey.gender || survey.gender==='לא מוגבל') &&
         (u.sector===survey.sector || survey.sector==='לא מוגבל') && 
         (survey.age[0] <= age) &&
         (survey.age[1]>=age||survey.age==='')
@@ -130,7 +130,7 @@ console.log(surveysForUsers);
  
    }
    const changestatus = async (e) => {
-    // await addSurveyFunc({title:title.current.value,sex:selectedSex.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
+    // await addSurveyFunc({title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
    await changeStatusFunc({_id:survey?._id,status:"in process"}).then(()=>refetch())
     window.location.reload(true)
    }

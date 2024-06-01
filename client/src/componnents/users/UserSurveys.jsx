@@ -32,11 +32,11 @@ error,
 isSuccess:survesIsSuccess,
 
 refetch
-} =  useGetSurveysQuery({status:status/*,sex:'',sector:'',birthDate:''*/})
+} =  useGetSurveysQuery({status:status/*,gender:'',sector:'',birthDate:''*/})
 let filteredSurveys=[]
 
 const filt=()=>{
-filteredSurveys=surveys?.filter(s=>((s.sex===myUser?.sex || s.sex==='לא מוגבל') && (s.sector===myUser?.sector || s.sector==='לא מוגבל') && (s.age[0]<=age&&s.age[1]>=age||s.age==='') ) && (myUser?.surveys?.find(us=>us===s._id)==undefined))
+filteredSurveys=surveys?.filter(s=>((s.gender===myUser?.gender || s.gender==='לא מוגבל') && (s.sector===myUser?.sector || s.sector==='לא מוגבל') && (s.age[0]<=age&&s.age[1]>=age||s.age==='') ) && (myUser?.surveys?.find(us=>us===s._id)==undefined))
 console.log(filteredSurveys);}
 
 
@@ -56,7 +56,7 @@ const age=(y2-y1)
 //  },[survesIsSuccess,userIsSuccess])
   
 
-//filteredSurveys=surveys?.filter(s=>s.sex==myUser.sex || s.sex==''||s.sex==undefined && s.sector==myUser.sector || s.sector=='' ||s.sector==undefined && s.birthDate>=myUser.birthDate||s.birthDate=='' || s.birthDate==undefined)
+//filteredSurveys=surveys?.filter(s=>s.gender==myUser.gender || s.gender==''||s.gender==undefined && s.sector==myUser.sector || s.sector=='' ||s.sector==undefined && s.birthDate>=myUser.birthDate||s.birthDate=='' || s.birthDate==undefined)
 const [visible1,setVisible1]=useState(false)
 
 
@@ -64,9 +64,9 @@ const [visible1,setVisible1]=useState(false)
     if (isLoading) return <h1>Loading</h1>
     if(isError) return <h2>{error}</h2>
     return (
-        <div className="cardSurvey" >
-{           console.log("aaaaaaaabbbbbb")
-}            {filteredSurveys?.map((s)=><UserSurveyItem user={myUser} refetch ={refetch} survey={s}/>)}
+        <div className="cardSurvey" id="cardSurveyId" >
+
+            {filteredSurveys?.map((s)=><UserSurveyItem user={myUser} refetch ={refetch} survey={s}/>)}
             
                
             <ScrollTop />
@@ -106,8 +106,8 @@ export default UserSurveys
 //     const y2=new Date().getFullYear()
 //     const age=(y2-y1)
 //     let filteredSurveys
-//     surveys?.forEach(s=>console.log(s.sex,' ',s.sector,' ',s.title))
-//     filteredSurveys=surveys?.filter(s=>(s.sex===myUser?.sex || s.sex==='לא מוגבל')&& (s.sector===myUser.sector || s.sector==='לא מוגבל') && s.age[0]<=age&&s.age[1]>=age)
+//     surveys?.forEach(s=>console.log(s.gender,' ',s.sector,' ',s.title))
+//     filteredSurveys=surveys?.filter(s=>(s.gender===myUser?.gender || s.gender==='לא מוגבל')&& (s.sector===myUser.sector || s.sector==='לא מוגבל') && s.age[0]<=age&&s.age[1]>=age)
 //     if (isLoading) return <h1>Loading</h1>
 //     if(isError) return <h2>{error}</h2>
 

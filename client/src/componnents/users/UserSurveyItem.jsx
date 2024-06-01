@@ -27,7 +27,7 @@ const UserSurveyItem=(props)=> {
                          ></Button>
                           <Button icon="pi pi-lock" className="p-button-rounded"style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}} disabled={survey.status != 'in process'}
                         onClick={changestatus}></Button>  */}
-                        <Button icon="pi pi-file-edit" className="p-button-rounded" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}
+                        <Button icon="pi pi-file-edit" label='ענה על הסקר' className="p-button-rounded" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}
                         onClick={()=>{setVisible(true)}}
                         ></Button>
                         {/* <Button icon="pi pi-times" className="p-button-rounded"style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status === 'in process'}
@@ -38,8 +38,8 @@ const UserSurveyItem=(props)=> {
    
     return (<>
        
-        <div className="card " >
-            <Card style={{BlockSize:'250px'}}>
+        <div className="card" id="userCard">
+            <Card >
             <h1>{survey.title}</h1>
              {/* <Toolbar start={startContent} center={centerContent} end={endContent} />  */}
             {/* {startContent}
@@ -54,7 +54,7 @@ const UserSurveyItem=(props)=> {
             <p style={{width:'30%'}}>
                {centerContent}
             </p> */}
-            <Divider layout="vertical" />
+            
             <p style={{width:'30%',marginRight:0}}>
                 {endContent}
             </p>

@@ -22,7 +22,7 @@ const usereSchema=new mongoose.Schema({
         default:null
     },
        
-    sex:{
+    gender:{
         type:String,
         enum:["זכר","נקבה","לא נבחר"],
 default:"לא נבחר"

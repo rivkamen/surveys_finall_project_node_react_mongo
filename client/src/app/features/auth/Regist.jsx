@@ -24,13 +24,13 @@
 // var name=useRef('')      
 // var password=useRef('')
 // var birthDate=useRef('')
-// var sex=useRef('')
+// var gender=useRef('')
 // var sector=useRef({key:'',name:''})
 // var username=useRef('')
 // var email=useRef('')
 // const register = (e) => {
 // //e.preventDefault();
-// registerFunc({name:name.current.value, username:username.current.value, password:password.current.value, birthDate:birthDate.current.value, email:email.current.value, sex:sex.current.value, sector:sector.current.value })
+// registerFunc({name:name.current.value, username:username.current.value, password:password.current.value, birthDate:birthDate.current.value, email:email.current.value, gender:gender.current.value, sector:sector.current.value })
 // };
 // const [value, setValue] = useState('');
 // const [date, setDate] = useState(null);
@@ -105,25 +105,25 @@
 
 //                             </InputText>
 //                         </div><br/><br/>
-//                         <label htmlFor="sex" className="font-semibold">
-//                             sex 
+//                         <label htmlFor="gender" className="font-semibold">
+//                             gender 
 //                             </label> 
 
 //                             <div className="bg-white-alpha-20 border-#black p-3">
 
 //              <div className="flex align-items-center gap-2"> 
 
-//                   <div className="flex align-items-center gap-2" ref={sex}> 
+//                   <div className="flex align-items-center gap-2" ref={gender}> 
 
 //                     <label htmlFor="ingredient2" className="ml-2">נקבה&nbsp;</label>
-//                     <RadioButton inputId="ingredient2" name="female" value="נקבה" onChange={(e) => {setIngredient(e.value);sex.current.value=e.value}}
+//                     <RadioButton inputId="ingredient2" name="female" value="נקבה" onChange={(e) => {setIngredient(e.value);gender.current.value=e.value}}
 //                      checked={ingredient === 'נקבה'} 
 //                      />
 //                  </div> 
 //                  <div className="flex align-items-center gap-2"> 
 
 //                      <label htmlFor="ingredient1" className="ml-2">זכר&nbsp;</label>
-//                     <RadioButton inputId="ingredient1" name="male" value="זכר" onChange={(e) => {setIngredient(e.value);sex.current.value=e.value}} 
+//                     <RadioButton inputId="ingredient1" name="male" value="זכר" onChange={(e) => {setIngredient(e.value);gender.current.value=e.value}} 
 //                     checked={ingredient === 'זכר'}
 
 //                    />
@@ -146,7 +146,7 @@
 //                         </div>
 //                     );
 //                 })}
-//             </div>{console.log(`${name.current.value} ${username.current.value} ${password.current.value} ${birthDate.current.value} ${email.current.value} ${sex.current.value} ${sector.current.value}`)}
+//             </div>{console.log(`${name.current.value} ${username.current.value} ${password.current.value} ${birthDate.current.value} ${email.current.value} ${gender.current.value} ${sector.current.value}`)}
 //         </div>
 
 //                         {/* <div className="flex align-items-center gap-2">
@@ -192,14 +192,14 @@ const Regist = (props) => {
     var name = useRef('')
     var password = useRef('')
     var birthDate = useRef('')
-    var sex = useRef('')
+    var gender = useRef('')
     var sector = useRef({ key: '', name: '' })
     var username = useRef('')
     var email = useRef('')
     const register = (e) => {
         //e.preventDefault();
         if(sector?.current?.value?.name){sector=sector?.current?.value?.name}else{sector=undefined}
-        registerFunc({name:name.current.value, username:username.current.value, password:password.current.value, birthDate:birthDate.current.value, email:email.current.value, sex:sex.current.value, sector:sector})
+        registerFunc({name:name.current.value, username:username.current.value, password:password.current.value, birthDate:birthDate.current.value, email:email.current.value, gender:gender.current.value, sector:sector})
 
     };
 
@@ -289,7 +289,7 @@ const Regist = (props) => {
                 <div>
                     <div className="inline-flex flex-column gap-2">
                         <label htmlFor="name" className="font-semibold">
-                            name
+                            שם פרטי
                         </label>
 
                         <AutoComplete id="name1" style={{ width: '400px' }} label="Name" /*className="bg-white-alpha-20 border-#black p-3"*/ inputRef={name} value={formik.values.name} /*placeholder={title.current}*/
@@ -306,7 +306,7 @@ const Regist = (props) => {
                     </div><br /><br /><br />
                     <div className="inline-flex flex-column gap-2">
                         <label htmlFor="username" className="font-semibold">
-                            Username
+                            שם משתמש
                         </label>
                         <AutoComplete style={{ width: '400px' }} id="username1" label="Username" /*className="bg-white-alpha-20 border-#black p-3"*/ inputRef={username} value={formik.values.username}
                             name='username'
@@ -320,7 +320,7 @@ const Regist = (props) => {
                     </div><br /><br /><br />
                     <div className="inline-flex flex-column gap-2 p-fluid">
                         <label htmlFor="password" className="font-semibold">
-                            password
+                            סיסמה
                         </label>
                         <Password id="password1" style={{ width: '400px', height: '50px' }} value={formik.values.password} toggleMask
                             promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password"
@@ -339,37 +339,37 @@ const Regist = (props) => {
                     </div>
                     <div className="inline-flex flex-column gap-2" >
                         <label htmlFor="birthDate" className="font-semibold">
-                            birthDate
+                            תאריך לידה
                         </label>
                         <Calendar id='calendar1' style={{ width: '400px', height: '50px' }} value={date} onChange={(e) => setDate(e.value)} locale="es" inputRef={birthDate} />
                     </div><br /><br /><br /><br />
                     <div className="inline-flex flex-column gap-2">
                         <label htmlFor="email" className="font-semibold">
-                            email
+                            מייל
                         </label>
                         <InputText style={{ width: '400px' }} id="email1" label="Email" keyfilter="email" className="" ref={email}>
 
                         </InputText>
                     </div><br /><br />
-                    <label htmlFor="sex" className="font-semibold">
-                        sex
+                    <label htmlFor="gender" className="font-semibold">
+                        מגדר
                     </label>
 
                     <div className="bg-white-alpha-20 border-#black p-3">
 
                         <div className="flex align-items-center gap-2">
 
-                            <div className="flex align-items-center gap-2" ref={sex}>
+                            <div className="flex align-items-center gap-2" ref={gender}>
 
                                 <label htmlFor="ingredient2" className="ml-2">נקבה&nbsp;</label>
-                                <RadioButton inputId="ingredient2" name="female" value="נקבה" onChange={(e) => { setIngredient(e.value); sex.current.value = e.value }}
+                                <RadioButton inputId="ingredient2" name="female" value="נקבה" onChange={(e) => { setIngredient(e.value); gender.current.value = e.value }}
                                     checked={ingredient === 'נקבה'}
                                 />
                             </div>
                             <div className="flex align-items-center gap-2">
 
                                 <label htmlFor="ingredient1" className="ml-2">זכר&nbsp;</label>
-                                <RadioButton inputId="ingredient1" name="male" value="זכר" onChange={(e) => { setIngredient(e.value); sex.current.value = e.value }}
+                                <RadioButton inputId="ingredient1" name="male" value="זכר" onChange={(e) => { setIngredient(e.value); gender.current.value = e.value }}
                                     checked={ingredient === 'זכר'}
 
                                 />
@@ -378,7 +378,7 @@ const Regist = (props) => {
                     </div>
                     <div className="card flex justify-content-right">
                         <label htmlFor="sector" className="font-semibold">
-                            sector
+                            מגזר
                         </label> <br /> <br /> <br /> <br />
                         <div className="flex justify-content-right gap-3">
                             {categories.map((category) => {

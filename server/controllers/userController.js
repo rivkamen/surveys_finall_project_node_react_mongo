@@ -1,12 +1,12 @@
 const User = require("../models/User");
 const add=async(req,res)=>{
-    const {username,password,name,birthDate,sex,sector,email} = req.body
+    const {username,password,name,birthDate,gender,sector,email} = req.body
     if (!name || !username || !password) {
         return res.status(400).json({message:'required field is missing'})
         }
-        if(!(sex in ["זכר","נקבה"]) || !(sector in ["חרדי","חילוני","דתי לאומי","מסורתי","לא משתייך"]) )
+        if(!(gender in ["זכר","נקבה"]) || !(sector in ["חרדי","חילוני","דתי לאומי","מסורתי","לא משתייך"]) )
         {
-            return res.status(401).json({message:"sex or sector are not valid"})
+            return res.status(401).json({message:"gender or sector are not valid"})
         }
     let roles;
     const duplicate=await User.findOne({username:username}).lean()
@@ -19,7 +19,7 @@ const add=async(req,res)=>{
     }
     const hashedPwd = await bcrypt.hash(password, 10)
     const userObject= {username,password:hashedPwd,name,email,phone}
-    const user = await User.create(username,password,name,birthDate,sex,sector,email,roles)
+    const user = await User.create(username,password,name,birthDate,gender,sector,email,roles)
     if(user){
        return res.status(201).json({success:true,
             message:`user ${user.name}created successfuly`,

@@ -3,7 +3,7 @@ const SurveyApiSlice = apiSlice.injectEndpoints({
 endpoints: (build) => ({
 getSurveys: build.query({
 query:(s)=>({
-url: '/api/surveys?status='+s.status//+'&sector='+s.sector+'&sex='+s.sex+'&birthDate='+s.birthDate
+url: '/api/surveys?status='+s.status//+'&sector='+s.sector+'&gender='+s.gender+'&birthDate='+s.birthDate
 }),
 providesTags:["Surveys"]
 

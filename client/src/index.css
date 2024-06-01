@@ -1,46 +1,4 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-html {
-  font-size: 14px;
-}
-
-body {
-  font-family: var(--font-family);
-  font-weight: normal;
-  background: var(--surface-ground);
-  color: var(--text-color);
-  padding: 1rem;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-.card {
-  background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-.cardSurvey {
-  background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  border: 2px;
-  border-color: teal;
-}
- */
 
  body {
   margin: 0;
@@ -90,6 +48,7 @@ div {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+
 }
 .answersCard{
   border:'1px';
@@ -122,6 +81,8 @@ font-size: medium;}
  }
  .p-inputtext, .p-component{
   border-color:#14B8A6;
+  /* color: #14B8A6; */
+  
  }
  #pr_id_193_header{
   font-family: 'Yehuda CLM';
@@ -130,3 +91,44 @@ font-size: medium;}
   background-color:#14B8A6;
 
  } */
+ .p-menubar{
+  color: #14B8A6;
+  block-size: 100px;
+ }
+ 
+ #userCard{
+  width: 60%;
+  border-color: #14B8A6;
+  align-items: center;
+
+ }
+ #cardSurveyId{
+  text-align: center;
+
+}
+.App{
+   overflow: auto;
+   min-height: 100%;
+  height: 100%;
+  width:100%;
+  margin-top: 0%;
+}
+.cardSurvey{
+  margin-top: 110px;
+  
+}
+.nav{
+  position: fixed;
+  width: 99%;
+}
+.p-menubar .p-component{
+  padding: 30;
+
+}
+.bar{
+  font-size: larger;
+  
+}
+.link{
+  margin-left: 3px;
+}
