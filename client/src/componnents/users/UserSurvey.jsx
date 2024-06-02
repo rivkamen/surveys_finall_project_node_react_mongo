@@ -8,7 +8,7 @@ import { useAddSurveyMutation, useCountSurveyMutation, useChangeStatusMutation, 
 // import { Inplace, InplaceContent, InplaceDisplay } from "primereact/inplace"
 // import { InputText } from "primereact/inputtext"
 import UserQuestion from "./UserQuestion"
-import axios from 'axios'
+// import axios from 'axios'
 import { useChangeAnswerDataMutation } from "../answers/ansApiSlice"
 import { useAddUserSurveyMutation } from "./usersApiSlice"
 import { Navigate } from "react-router-dom"
@@ -16,21 +16,7 @@ const UserSurvey = (props) => {
     const { setVisible, visible, refetch, survey, user } = props
     console.log("111111111111111111111111111111111111111111111111111111");
     console.log(user);
-    // const Request = async () => {
-//         const ans = await axios("http://localhost:6125/api/functionToken/" + localStorage.getItem("token"))
-// console.log('vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv');
-//         if (ans.data.ans == false) {
-
-//             Navigate("/login")
-//         }
-//     }
-//     useEffect(() => {
-//         Request();
-
-//     }, [])
-
-    // let {type}=props
-    // const [ed,setEd]=useState(false)
+   
     let [select, setSelect] = useState(survey.questions.map(q => { return { _id: q._id, select: q.select } }))
 
 
@@ -91,7 +77,3 @@ const UserSurvey = (props) => {
     )
 }
 export default UserSurvey
-
-/*
-
-*/

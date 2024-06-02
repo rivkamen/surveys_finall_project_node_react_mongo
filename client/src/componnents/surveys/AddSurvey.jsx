@@ -13,7 +13,7 @@
 // const AddSurvey=(props)=>{
 //     const {visible1,setVisible1,refetch}=props
 //     const [ed,setEd]=useState(false)
-//     const [selectedSex, setSelectedSex] = useState({name:null,code:''});
+//     const [selectedgender, setSelectedgender] = useState({name:null,code:''});
 //     const [selectedSector, setSelectedSector] = useState({name:null,code:''});
 //     const [selectedAge, setSelectedAge] = useState({name:null,code:''});
 //     const [selectedBirthDate, setSelectedBirthDate] = useState(Date);
@@ -26,11 +26,11 @@
 // const [updateFunc, {data:updateSurvey={},isError:updateSurveyIsError, error:updateSurveyError, isSuccess:updateSurveyIsSuccess}] = useUpdateSurveyMutation()
 // const add = async (e) => {
     
-//     await addFunc({title:title.current.value/*,gender:selectedSex.name,sector:selectedSector.name,birthDate:selectedBirthDate*/}).then(refetch())
+//     await addFunc({title:title.current.value/*,gender:selectedgender.name,sector:selectedSector.name,birthDate:selectedBirthDate*/}).then(refetch())
 //     setEd(true)
 // };
 // const edit = async (e) => {
-//     await updateFunc({_id:survey.data._id,title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,birthDate:selectedBirthDate}).then(refetch());
+//     await updateFunc({_id:survey.data._id,title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,birthDate:selectedBirthDate}).then(refetch());
 // };
     
 
@@ -117,7 +117,7 @@
 //         </div>
 //        </div>
 //        <div className="card flex justify-content-center">
-//             <Dropdown value={selectedSex} onChange={(e) => setSelectedSex(e.value)} options={gender} optionLabel="name" placeholder="Select a gender" 
+//             <Dropdown value={selectedgender} onChange={(e) => setSelectedgender(e.value)} options={gender} optionLabel="name" placeholder="Select a gender" 
 //                 filter valueTemplate={selectedCountryTemplate} itemTemplate={countryOptionTemplate} className="w-full md:w-14rem" />
 //         </div>  
 //         <div className="card flex justify-content-center">
@@ -193,7 +193,7 @@ const AddSurvey=(props)=>{
     let [questions,setQuestions]=useState([]); 
     const [ed,setEd]=useState(false)
     const [quest,setQuest]=useState(false) 
-    const [selectedSex, setSelectedSex] = useState()
+    const [selectedgender, setSelectedgender] = useState()
     const [selectedSector, setSelectedSector] = useState()
   //const [selectedAge, setSelectedAge] = useState({name:null,code:''});
     const [selectedBirthDate, setSelectedBirthDate] = useState(Date)
@@ -211,8 +211,8 @@ const AddSurvey=(props)=>{
        
 
        
-       await addSurveyFunc({title:text,gender:selectedSex,sector:selectedSector,age:ages,questions:questions}).then(()=>refetch())
-       //await updateSurveyFunc({_id:survey?.data?._id,title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,age:ages}).then(()=>refetch())
+       await addSurveyFunc({title:text,gender:selectedgender,sector:selectedSector,age:ages,questions:questions}).then(()=>refetch())
+       //await updateSurveyFunc({_id:survey?.data?._id,title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,age:ages}).then(()=>refetch())
     }
 
     const toastCenter = useRef(null);
@@ -224,10 +224,10 @@ const AddSurvey=(props)=>{
     //             //e.preventDefault();
                 
 
-    //         await updateSurveyFunc({_id:survey?.data?._id,title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,age:ages}).then(()=>refetch()) 
+    //         await updateSurveyFunc({_id:survey?.data?._id,title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,age:ages}).then(()=>refetch()) 
     //     }
     // const changestatus = async (e) => {
-    //     // await addSurveyFunc({title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
+    //     // await addSurveyFunc({title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
     //    changeStatusFunc({_id:survey?.data?._id,status:"in process"}).then(()=>refetch())
     //    }
 
@@ -241,9 +241,9 @@ const AddSurvey=(props)=>{
     
   
     const gender = [
-        { label: 'לא מוגבל',icon:'pi pi-circle',command:()=>{setSelectedSex('לא מוגבל')} },
-        { label: 'זכר',command:()=>{setSelectedSex('זכר')} },
-        { label: 'נקבה',command:()=>{setSelectedSex('נקבה')}}
+        { label: 'לא מוגבל',icon:'pi pi-circle',command:()=>{setSelectedgender('לא מוגבל')} },
+        { label: 'זכר',command:()=>{setSelectedgender('זכר')} },
+        { label: 'נקבה',command:()=>{setSelectedgender('נקבה')}}
     ];
     const sector = [
         { label: 'לא מוגבל',command:()=>{setSelectedSector('לא מוגבל')} },
@@ -258,7 +258,7 @@ const AddSurvey=(props)=>{
     const [ages, setAges] = useState([0,120]);
     const items = [
         {
-            label: selectedSex||'מגדר',
+            label: selectedgender||'מגדר',
             icon: 'pi pi-user',
             items: gender,
         },

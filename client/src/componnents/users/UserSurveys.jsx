@@ -36,8 +36,11 @@ refetch
 let filteredSurveys=[]
 
 const filt=()=>{
+    if(myUser?.roles==='admin')
+        filteredSurveys=surveys
+    else{
 filteredSurveys=surveys?.filter(s=>((s.gender===myUser?.gender || s.gender==='לא מוגבל') && (s.sector===myUser?.sector || s.sector==='לא מוגבל') && (s.age[0]<=age&&s.age[1]>=age||s.age==='') ) && (myUser?.surveys?.find(us=>us===s._id)==undefined))
-console.log(filteredSurveys);}
+console.log(filteredSurveys);}}
 
 
 

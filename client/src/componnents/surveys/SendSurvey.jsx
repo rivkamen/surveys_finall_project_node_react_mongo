@@ -50,7 +50,7 @@
  
 //    }
 //    const changestatus = async (e) => {
-//     // await addSurveyFunc({title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
+//     // await addSurveyFunc({title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
 //    changeStatusFunc({_id:survey?.data?._id,status:"in process"}).then(()=>refetch())
 //    window.location.reload(true)
 //    }
@@ -130,7 +130,7 @@ console.log(surveysForUsers);
  
    }
    const changestatus = async (e) => {
-    // await addSurveyFunc({title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
+    // await addSurveyFunc({title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,age:ages,questions:questions}).then(()=>
    await changeStatusFunc({_id:survey?._id,status:"in process"}).then(()=>refetch())
     window.location.reload(true)
    }

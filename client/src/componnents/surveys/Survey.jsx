@@ -20,7 +20,7 @@ import SendSurvey from "./SendSurvey"
 const Survey=(props)=>{
     const {visible1,setVisible1,refetch,survey}=props
     const [send,setSend]=useState(false)
-    const [selectedSex, setSelectedSex] = useState(survey.gender);
+    const [selectedgender, setSelectedgender] = useState(survey.gender);
     const [selectedSector, setSelectedSector] = useState(survey.sector);
     // const [selectedAge, setSelectedAge] = useState({name:survey.age,code:''});
     // const [selectedBirthDate, setSelectedBirthDate] = useState(Date);
@@ -37,7 +37,7 @@ const edit = async (e) => {
         //e.preventDefault();
         
     // await newQuestions.forEach(q=>{console.log("**************************"+q.body);addQuestionFunc({_id:survey._id,body:q.body,answers:q.answers})})
-    await updateFunc({_id:survey._id,title:title.current.value,gender:selectedSex.name,sector:selectedSector.name,age:ages,questions:questions,newQuestions:newQuestions}).then(refetch());
+    await updateFunc({_id:survey._id,title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,age:ages,questions:questions,newQuestions:newQuestions}).then(refetch());
     // type='edit'
 };
 const formik = useFormik({
@@ -94,9 +94,9 @@ return isFormFieldInvalid(name) ?  <small className="p-error">{formik.errors[nam
 
 
     const gender = [
-        { label: 'לא מוגבל',icon:'pi pi-circle',command:()=>{setSelectedSex('לא מוגבל')} },
-        { label: 'זכר',command:()=>{setSelectedSex('זכר')} },
-        { label: 'נקבה',command:()=>{setSelectedSex('נקבה')}}
+        { label: 'לא מוגבל',icon:'pi pi-circle',command:()=>{setSelectedgender('לא מוגבל')} },
+        { label: 'זכר',command:()=>{setSelectedgender('זכר')} },
+        { label: 'נקבה',command:()=>{setSelectedgender('נקבה')}}
     ];
     const sector = [
         { label: 'לא מוגבל',command:()=>{setSelectedSector('לא מוגבל')} },
@@ -110,7 +110,7 @@ return isFormFieldInvalid(name) ?  <small className="p-error">{formik.errors[nam
     ];
     const items = [
         {
-            label: selectedSex||'מגדר',
+            label: selectedgender||'מגדר',
             icon: 'pi pi-user',
             items: gender,
         },

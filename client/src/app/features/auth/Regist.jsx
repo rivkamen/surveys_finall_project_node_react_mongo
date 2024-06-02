@@ -177,6 +177,7 @@ import { RadioButton } from "primereact/radiobutton";
 import { useFormik } from 'formik';
 import { classNames } from 'primereact/utils';
 import { AutoComplete } from 'primereact/autocomplete';
+import { Panel } from 'primereact/panel';
 const Regist = (props) => {
     const [visible, setVisible] = useState(true)
 
@@ -351,9 +352,11 @@ const Regist = (props) => {
 
                         </InputText>
                     </div><br /><br />
-                    <label htmlFor="gender" className="font-semibold">
-                        מגדר
-                    </label>
+                    <Panel htmlFor="gender" className="font-semibold" header="מגדר" dir='rtl'>
+    <p className="m-0">
+       
+    
+                   
 
                     <div className="bg-white-alpha-20 border-#black p-3">
 
@@ -361,21 +364,29 @@ const Regist = (props) => {
 
                             <div className="flex align-items-center gap-2" ref={gender}>
 
-                                <label htmlFor="ingredient2" className="ml-2">נקבה&nbsp;</label>
+                              
                                 <RadioButton inputId="ingredient2" name="female" value="נקבה" onChange={(e) => { setIngredient(e.value); gender.current.value = e.value }}
                                     checked={ingredient === 'נקבה'}
-                                />
+                                />  <label htmlFor="ingredient2" className="ml-2">נקבה&nbsp;</label>
                             </div>
                             <div className="flex align-items-center gap-2">
 
-                                <label htmlFor="ingredient1" className="ml-2">זכר&nbsp;</label>
+                                
                                 <RadioButton inputId="ingredient1" name="male" value="זכר" onChange={(e) => { setIngredient(e.value); gender.current.value = e.value }}
                                     checked={ingredient === 'זכר'}
 
-                                />
+                                /><label htmlFor="ingredient1" className="ml-2">זכר&nbsp;</label>
+                            </div>
+                            <div className="flex align-items-center gap-2" ref={gender}>
+
+                              
+                                <RadioButton inputId="ingredient2" name="clear" value={"לא נבחר"} onChange={(e) => { setIngredient(e.value); gender.current.value = e.value }}
+                                    checked={false}
+                                />  <label htmlFor="ingredient2" className="ml-2">נקה בחירה&nbsp;</label>
                             </div>
                         </div>
-                    </div>
+                    </div></p>
+</Panel>
                     <div className="card flex justify-content-right">
                         <label htmlFor="sector" className="font-semibold">
                             מגזר
@@ -393,6 +404,7 @@ const Regist = (props) => {
                                     </div>
                                 );
                             })}
+                            
                         </div>
                     </div>
 
