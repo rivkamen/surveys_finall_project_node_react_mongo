@@ -66,7 +66,7 @@ const UserSurvey = (props) => {
                 </div>
 
             </div>  <footer style={{ textAlign: 'center', padding: '10px' }}>
-                <p> <Button onClick={async () => {
+                <p> <Button id="butUserSurvey"onClick={async () => {
                     await addSurveyForUser(); await count(); await chooseSegment(); window.location.reload(true); setVisible(false)
 
                 }} label='&nbsp;שמור' icon="pi pi-save" /> </p>
