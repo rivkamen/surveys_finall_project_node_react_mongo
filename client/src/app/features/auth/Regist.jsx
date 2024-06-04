@@ -171,8 +171,8 @@ const Regist = (props) => {
                         />
                         {getFormErrorMessage('password')}
 
-                        <br /><br />
-                    </div>
+                        
+                    </div><br /><br />
                     <div className="inline-flex flex-column gap-2" >
                         <label htmlFor="birthDate" className="font-semibold">
                             תאריך לידה

@@ -34,6 +34,12 @@ const LineSeg=(props)=> {
     'rgb(10, 20, 30)'
     ])
 
+    let sum=0;
+    let avg;
+    data.map(value => (sum+=value));
+    if(sum!=0){
+    avg = 100/sum;}
+    const transformedData = data.map(value => (value*avg));
 
     const [borderWidthh,setBorderWidthh]=useState('1')
 
@@ -44,17 +50,32 @@ const LineSeg=(props)=> {
             datasets: [
                 {
                     label: question.body,
-                    data: data,
+                    data: transformedData,
                     backgroundColor: colorsGroup,
                     borderColor:borderColors,
-                    borderWidth: borderWidthh
+                    borderWidth: borderWidthh,
+                    tension: 0.4
                 }
             ]
         };
         const options = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            let value = tooltipItem.raw;
+                            return `${value.toFixed(0)}%`;
+                        }
+                    }
+                }
+            },
             scales: {
                 y: {
-                    beginAtZero: true
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
                 }
             }
         };
@@ -70,3 +91,47 @@ const LineSeg=(props)=> {
     )
 }
 export default LineSeg
+
+
+/* datasets: [
+        {
+            label: 'My Dataset',
+            data: [65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: '#42A5F5',
+            tension: 0.4
+        }
+    ]
+};
+
+const chartOptions = {
+    plugins: {
+        tooltip: {
+            callbacks: {
+                label: function(tooltipItem) {
+                    let value = tooltipItem.raw;
+                    return `${value}%`;
+                }
+            }
+        }
+    },
+    scales: {
+        y: {
+            ticks: {
+                callback: function(value) {
+                    return value + '%';
+                }
+            }
+        }
+    }
+};
+
+function App() {
+    return (
+        <div>
+            <Chart type="line" data={chartData} options={chartOptions} />
+        </div>
+    );
+}
+
+export default App;*/

@@ -38,6 +38,12 @@ const BarSeg=(props)=> {
 
     const [borderWidthh,setBorderWidthh]=useState('1')
 
+    let sum=0;
+    let avg;
+    data.map(value => (sum+=value));
+    if(sum!=0){
+    avg = 100/sum;}
+    const transformedData = data.map(value => (value*avg));
 
     useEffect(() => {
         const data2 = {
@@ -45,7 +51,7 @@ const BarSeg=(props)=> {
             datasets: [
                 {
                     label: question.body,
-                    data: data,
+                    data: transformedData,
                     backgroundColor: colorsGroup,
                     borderColor:borderColors,
                     borderWidth: borderWidthh
@@ -53,9 +59,23 @@ const BarSeg=(props)=> {
             ]
         };
         const options = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            let value = tooltipItem.raw;
+                            return `${value.toFixed(0)}%`;
+                        }
+                    }
+                }
+            },
             scales: {
                 y: {
-                    beginAtZero: true
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
                 }
             }
         };
