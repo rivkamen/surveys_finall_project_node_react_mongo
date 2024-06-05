@@ -14,6 +14,8 @@ const DeleteDial=(props)=>{
    //e.preventDefault();
 //    console.log('id:'+survey._id);
    deleteFunc({_id:survey._id}).then(()=>refetch()) 
+   window.location.reload(true)
+
 
    };
     const footerContent = (

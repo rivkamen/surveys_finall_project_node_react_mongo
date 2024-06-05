@@ -22,7 +22,7 @@ return (
     <div className="cardSurvey"> 
         <div style={{ display: 'flex' }}>
             <div style={{ flex: 1 /*,width:'80%'*/ }}>
-                <Button icon="pi pi-plus" style={{color:'#10bbbb', backgroundColor:'#e5e7eb', position:'fixed'}}label="&nbsp;סקר חדש&nbsp;" onClick={()=>{setVisibleNew(true)}}  rounded />
+                <Button icon="pi pi-plus" style={{color:'#10bbbb', backgroundColor:'#e5e7eb', position:'fixed', marginTop:'25px', marginLeft:'0px'}}label="&nbsp;סקר חדש&nbsp;" onClick={()=>{setVisibleNew(true)}}  rounded />
             </div>
             <div style={{ flex: 2/*,marginLeft:'25%'*/}}>
     

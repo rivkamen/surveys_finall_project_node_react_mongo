@@ -137,16 +137,18 @@ span.pi.pi::before{
     color:#14B8A6;
     
 }
+
 i.pi.pi-sort-numeric-up-alt::before{
   color:#14B8A6;
 
 }
-a { text-decoration: none; 
+a { text-decoration: none;
+  color:black 
 }
 #butUserSurvey .p-button-icon.p-c.p-button-icon-left.pi.pi-save::before{
   color:white;
 }
-.p-button-icon.p-c.p-button-icon-left.pi.pi-user-plus::before, .p-button-icon.p-c.p-button-icon-left.pi.pi-user::before, .p-button-icon.p-c.p-button-icon-left.pi.pi-check::before{
+ .p-button-icon.p-c.p-button-icon-left.pi.pi-user::before, .p-button-icon.p-c.p-button-icon-left.pi.pi-check::before{
   color:white;
 
 }
@@ -181,6 +183,13 @@ div.p-fieldset-content{
   width:400px;
   height: 50px;
 }
+
 #whitwB1 span.p-button-icon.p-c.pi.pi-send::before{
   color: white;
 }
+
+#iconn{
+  color:aliceblue !important;
+}
+/* p-button-icon p-c p-button-icon-left pi pi-user-plus */
+
