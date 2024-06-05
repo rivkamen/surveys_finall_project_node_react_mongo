@@ -12,7 +12,7 @@ import { useDeleteQuestionMutation, useUpdateQuestionMutation } from './questApi
 import { useAddAnswerMutation } from '../answers/ansApiSlice';
 import { AutoComplete } from 'primereact/autocomplete';
 import { Divider } from 'primereact/divider';
-
+import './question.css'
 const Question=(props)=> {
 const {refetch,question,index,survey}=props
 let {questions,setQuestions,newQuestions,setNewQuestions}=props
@@ -101,7 +101,7 @@ const bodyQ=useRef(question.body!=' '?question.body:"שאלה חדשה")
      </div>
             <Accordion multiple activeIndex={[0]} style={{width:'100%'}}>
             <AccordionTab  header={question.body!=' '?question.body:"שאלה חדשה"}> 
-            <div dir="rtl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Button  label="&nbsp; הוסף תשובה " icon='pi pi-plus'rounded  onClick={addAnswer}> </Button> &nbsp;
+            <div dir="rtl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Button  label="&nbsp; הוסף תשובה " icon='pi pi-plus'rounded  id="iconn"style={{color:'#ffffff'}} onClick={addAnswer}> </Button> &nbsp;
           <Button label="&nbsp; מחק שאלה" icon='pi pi-trash' rounded onClick={delet} style={{color:'#10bbbb', backgroundColor:'#e5e7eb'}}></Button> </div>
            
             <div className="card p-fluid p-inputtext-lg" dir='rtl'>
