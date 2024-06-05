@@ -192,4 +192,8 @@ div.p-fieldset-content{
   color:aliceblue !important;
 }
 /* p-button-icon p-c p-button-icon-left pi pi-user-plus */
+.p-button-icon.p-c.p-button-icon-left.pi.pi-user-plus::before{
+  color:white !important;
+
+}
 

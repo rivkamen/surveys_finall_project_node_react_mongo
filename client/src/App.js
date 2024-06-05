@@ -67,7 +67,7 @@ function App() {
   return (
     <>
 <div className='App' id="app">
-      <div  className="App"style={{backgroundRepeat: 'no-repeat',backgroundSize: 'cover',
+      <div  style={{backgroundRepeat: 'no-repeat',backgroundSize: 'cover',
     
     backgroundPosition: "center",position:'sticky', top:'10'}}>
         {/* <Orders /> */} 

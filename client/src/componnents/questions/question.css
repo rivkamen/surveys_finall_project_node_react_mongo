@@ -43,13 +43,7 @@ body {
       font-style: normal;
     } 
   
-  .App{
-      background:url('../public/image/newback2.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
   
-  }
   .answersCard{
     border:'1px';
     border-color: '#e5e7eb';
