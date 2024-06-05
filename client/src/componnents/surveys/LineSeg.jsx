@@ -4,34 +4,32 @@ const LineSeg=(props)=> {
    var {labels,data,question}=props
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
-    const [colorsGroup,setColorsGroup]=useState(['rgb(20, 220, 185)',
-    'rgb(20, 200, 200)',
-    'rgb(20, 150, 255)',
-    'rgb(20, 220, 185)',
-    'rgb(20, 200, 225)',
-    'rgb(30, 175, 255)',
-    'rgb(40, 160, 255)',
-    'rgb(20, 180, 240)',
-    'rgb(20, 150, 150)',
-    'rgb(20, 160, 240)'
+    const [colorsGroup,setColorsGroup]=useState(['rgb(64, 224, 208)',   // Turquoise
+    'rgb(0, 255, 255)',    // Cyan
+    'rgb(0, 191, 255)',    // Deep Sky Blue
+    'rgb(0, 0, 255)',      // Blue
+    'rgb(75, 0, 130)',     // Indigo
+    'rgb(148, 0, 211)',    // Dark Violet
+    'rgb(238, 130, 238)',  // Violet
+    'rgb(255, 20, 147)',   // Deep Pink
+    'rgb(255, 0, 0)',      // Red
+    'rgb(255, 165, 0)',    // Orange
+    'rgb(255, 255, 0)',    // Yellow
+    'rgb(0, 255, 0)',      // Lime
+    'rgb(124, 252, 0)',    // Lawn Green
+    'rgb(32, 178, 170)',   // Light Sea Green
+    'rgb(72, 209, 204)',   // Medium Turquoise
+    'rgb(30, 144, 255)',   // Dodger Blue
+    'rgb(186, 85, 211)',   // Medium Orchid
+    'rgb(147, 112, 219)',  // Medium Purple
+    'rgb(240, 128, 128)',  // Light Coral
+    'rgb(255, 140, 0)'     // Dark Orange
 
     ])
-    const [borderColors,setBorderColors]=useState(['rgb(100, 255, 255)',
-    'rgb(20, 200, 200)',
-    'rgb(20, 150, 255)',
-    // 'rgb(20, 220, 185)',
-    // 'rgb(20, 200, 225)',
-    // 'rgb(30, 175, 255)',
-    // 'rgb(40, 160, 255)',
-    // 'rgb(20, 180, 240)',
-    // 'rgb(20, 150, 150)',
-    // 'rgb(20, 160, 240)',
-    // 'rgb(50, 80, 240)',
-    'rgb(80, 160, 240)',
-    'rgb(60, 60, 50)',
-    'rgb(80, 75, 100)',
-    'rgb(90, 180, 240)',
-    'rgb(10, 20, 30)'
+    const [borderColors,setBorderColors]=useState(['rgb(20, 220, 185)',
+    
+
+
     ])
 
     let sum=0;

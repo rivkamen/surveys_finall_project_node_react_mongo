@@ -51,8 +51,8 @@ const [saveDisable,setSaveDisable]=useState(false)
        
         {survey?.questions.map(q=><SegQuestion select={select} setSelect={setSelect} text={text} setText={setText} question={q}/>)}
         {/* <Button onClick={()=>{addQuestion()}} icon="pi pi-plus" rounded />  */}
-        <Button onClick={chooseSegment} icon="pi pi-save" rounded /> 
-        <Button disabled={saveDisable} onClick={async()=>{await chooseSegment(); await setSaveDisable(true); changeStatus();}} icon="pi pi-send" rounded /> 
+        <Button id="whiteB1" onClick={chooseSegment} icon="pi pi-save" rounded style={{color:"white"}}/> 
+        <Button id="whiteB2" disabled={saveDisable} onClick={async()=>{await chooseSegment(); await setSaveDisable(true); changeStatus();}} icon="pi pi-send" rounded /> 
         </>
     )
 }

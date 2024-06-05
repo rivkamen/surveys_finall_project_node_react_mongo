@@ -47,6 +47,8 @@ div {
     background:url('../public/image/newback2.png');
     background-repeat: no-repeat;
     background-size: cover;
+    
+    background-position: "center";
     background-attachment: fixed;
 
 }
@@ -178,4 +180,7 @@ div.p-fieldset-content{
 #autoCompl2 .p-autocomplete-input.p-inputtext.p-component.p-autocomplete-input, #autoCompl1 .p-autocomplete-input.p-inputtext.p-component.p-autocomplete-input{
   width:400px;
   height: 50px;
+}
+#whitwB1 span.p-button-icon.p-c.pi.pi-send::before{
+  color: white;
 }
