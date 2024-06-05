@@ -1,12 +1,48 @@
 .App {
   text-align: center;
 }
+.App {
 
+  overflow: auto;
+  
+  min-height: 100vh; /* Full height of the viewport */
+  
+  height: 100%;
+  
+  width: 100%;
+  
+  margin: 0; /* Remove default margins */
+  
+  padding: 0; /* Remove default padding */
+  
+  /* display: flex; */
+  
+  /* flex-direction: column; /* Ensure it expands */
+  
+  /*justify-content: center; /* Center content vertically */
+  
+  /*align-items: center; Center content horizontally */
+  
+  background:url('../public/image/newback2.png');
+  
+  background-repeat: no-repeat;
+  
+  background-size: cover;
+  
+  background-attachment: fixed;
+  
+  }
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
+div {
+  background-repeat: repeat-y;
+  background-size: cover;
+  font-family: "Yehuda CLM", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+} 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
