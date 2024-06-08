@@ -65,42 +65,93 @@ const About = () => {
     useEffect(() => {
         
         if (usersIsSuccess && users) {
-            users.forEach((u) => {
-                switch (u.sector) {
-                    case 'חרדי':
-                        setCountSector([countSector[0] + 1, countSector[1], countSector[2], countSector[3], countSector[4]]);
-                        break;
-                    case 'חילוני':
-                        setCountSector([countSector[0], countSector[1] + 1, countSector[2], countSector[3], countSector[4]]);
-                        break;
-                    case 'מסורתי':
-                        setCountSector([countSector[0], countSector[1], countSector[2] + 1, countSector[3], countSector[4]]);
-                        break;
-                    case 'דתי לאומי':
-                        setCountSector([countSector[0], countSector[1], countSector[2], countSector[3] + 1, countSector[4]]);
-                        break;
-                    case 'לא משתייך':
-                        setCountSector([countSector[0], countSector[1], countSector[2], countSector[3], countSector[4] + 1]);
-                        break;
-                    default:
-                        break;
-                }
+            // users.forEach((u) => {
+            //     console.log(u);
+            //     switch (u.sector) {
+            //         case 'חרדי':
+            //             setCountSector([countSector[0] + 1, countSector[1], countSector[2], countSector[3], countSector[4]]);
+            //             break;
+            //         case 'חילוני':
+            //             setCountSector([countSector[0], countSector[1] + 1, countSector[2], countSector[3], countSector[4]]);
+            //             break;
+            //         case 'מסורתי':
+            //             setCountSector([countSector[0], countSector[1], countSector[2] + 1, countSector[3], countSector[4]]);
+            //             break;
+            //         case 'דתי לאומי':
+            //             setCountSector([countSector[0], countSector[1], countSector[2], countSector[3] + 1, countSector[4]]);
+            //             break;
+            //         case 'לא משתייך':
+            //             setCountSector([countSector[0], countSector[1], countSector[2], countSector[3], countSector[4] + 1]);
+            //             break;
+            //         default:
+            //             break;
+            //     }
 
-                if (u.gender === 'זכר') {
-                    setCountGender([countGender[0] + 1, countGender[1]]);
-                } else if (u.gender === 'נקבה') {
-                    setCountGender([countGender[0], countGender[1] + 1]);
-                }
+            //     if (u.gender === 'זכר') {
+            //         setCountGender([countGender[0] + 1, countGender[1]]);
+            //     } else if (u.gender === 'נקבה') {
+            //         setCountGender([countGender[0], countGender[1] + 1]);
+            //     }
 
-                if (u.birthDate instanceof Date && !isNaN(u.birthDate)) {
-                    const age = d - new Date(u.birthDate).getFullYear();
-                    if (age >= 0 && age <= 10) {
-                        setCountAge([countAge[0] + 1, countAge[1], countAge[2], countAge[3], countAge[4], countAge[5], countAge[6], countAge[7], countAge[8], countAge[9], countAge[10]]);
-                    } else if (age > 10 && age <= 20) {
-                        setCountAge([countAge[0], countAge[1] + 1, countAge[2], countAge[3], countAge[4], countAge[5], countAge[6], countAge[7], countAge[8], countAge[9], countAge[10]]);
-                    } // Add similar conditions for other age ranges
+            //     if (u.birthDate instanceof Date && !isNaN(u.birthDate)) {
+            //         const age = d - new Date(u.birthDate).getFullYear();
+            //         if (age >= 0 && age <= 10) {
+            //             setCountAge([countAge[0] + 1, countAge[1], countAge[2], countAge[3], countAge[4], countAge[5], countAge[6], countAge[7], countAge[8], countAge[9], countAge[10]]);
+            //         } else if (age > 10 && age <= 20) {
+            //             setCountAge([countAge[0], countAge[1] + 1, countAge[2], countAge[3], countAge[4], countAge[5], countAge[6], countAge[7], countAge[8], countAge[9], countAge[10]]);
+            //         } // Add similar conditions for other age ranges
                    
-                }
+            //     }
+            // });
+
+            users.forEach((u) => {
+                setCountSector(prevCountSector => {
+                    switch (u.sector) {
+                        case 'חרדי':
+                            return [prevCountSector[0] + 1, prevCountSector[1], prevCountSector[2], prevCountSector[3], prevCountSector[4]];
+                        case 'חילוני':
+                            return [prevCountSector[0], prevCountSector[1] + 1, prevCountSector[2], prevCountSector[3], prevCountSector[4]];
+                        case 'מסורתי':
+                            return [prevCountSector[0], prevCountSector[1], prevCountSector[2] + 1, prevCountSector[3], prevCountSector[4]];
+                        case 'דתי לאומי':
+                            return [prevCountSector[0], prevCountSector[1], prevCountSector[2], prevCountSector[3] + 1, prevCountSector[4]];
+                        case 'לא משתייך':
+                            return [prevCountSector[0], prevCountSector[1], prevCountSector[2], prevCountSector[3], prevCountSector[4] + 1];
+                        default:
+                            return prevCountSector;
+                    }
+                });
+            
+                setCountGender(prevCountGender => {
+                    if (u.gender === 'זכר') {
+                        return [prevCountGender[0] + 1, prevCountGender[1]];
+                    } else if (u.gender === 'נקבה') {
+                        return [prevCountGender[0], prevCountGender[1] + 1];
+                    } else {
+                        return prevCountGender;
+                    }
+                });
+            
+                setCountAge(prevCountAge => {
+                    if (u.birthDate instanceof Date && !isNaN(u.birthDate)) {
+                        const age = d - new Date(u.birthDate).getFullYear();
+                        if (age >= 0 && age <= 10) {
+                            return [
+                                prevCountAge[0] + 1, prevCountAge[1], prevCountAge[2], prevCountAge[3], prevCountAge[4],
+                                prevCountAge[5], prevCountAge[6], prevCountAge[7], prevCountAge[8], prevCountAge[9], prevCountAge[10]
+                            ];
+                        } else if (age > 10 && age <= 20) {
+                            return [
+                                prevCountAge[0], prevCountAge[1] + 1, prevCountAge[2], prevCountAge[3], prevCountAge[4],
+                                prevCountAge[5], prevCountAge[6], prevCountAge[7], prevCountAge[8], prevCountAge[9], prevCountAge[10]
+                            ];
+                        } // Add similar conditions for other age ranges
+            
+                        return prevCountAge;
+                    } else {
+                        return prevCountAge;
+                    }
+                });
             });
         }
     }, [users, usersIsSuccess, d]);

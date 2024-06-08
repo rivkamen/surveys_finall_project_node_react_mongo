@@ -32,52 +32,102 @@ const PieSeg=(props)=> {
 
 
     const [borderWidthh,setBorderWidthh]=useState('1')
-    let sum=0;
-    let avg;
-   data.map(value => (sum+=value));
-    if(sum!=0){
-    avg = 100/sum;}
-    const transformedData = data.map(value => (value*avg));
+//     let sum=0;
+//     let avg;
+//    data.map(value => (sum+=value));
+//     if(sum!=0){
+//     avg = 100/sum;}
+//     const transformedData = data.map(value => (value*avg));
 
-    useEffect(() => {
-        const data2 = {
-            labels: labels,
-            datasets: [
-                {
-                    label: question.body,
-                    data: transformedData,
-                    backgroundColor: colorsGroup,
-                    borderColor:borderColors,
-                    borderWidth: borderWidthh,
-                    tension: 0.4
-                }
-            ]
-        };
-        const options = {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(tooltipItem) {
-                            let value = tooltipItem.raw;
-                            return `${value.toFixed(0)}%`;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%';
-                        }
+//     useEffect(() => {
+//         const data2 = {
+//             labels: labels,
+//             datasets: [
+//                 {
+//                     label: question.body,
+//                     data: transformedData,
+//                     backgroundColor: colorsGroup,
+//                     borderColor:borderColors,
+//                     borderWidth: borderWidthh,
+//                     tension: 0.4
+//                 }
+//             ]
+//         };
+//         const options = {
+//             plugins: {
+//                 tooltip: {
+//                     callbacks: {
+//                         label: function(tooltipItem) {
+//                             let value = tooltipItem.raw;
+//                             return `${value.toFixed(0)}%`;
+//                         }
+//                     }
+//                 }
+//             },
+//             scales: {
+//                 y: {
+//                     ticks: {
+//                         callback: function(value) {
+//                             return value + '%';
+//                         }
+//                     }
+//                 }
+//             }
+//         };
+
+//         setChartData(data2);
+//         setChartOptions(options);
+//     }, []);
+
+useEffect(() => {
+    let sum = 0;
+    data.forEach(value => (sum += value));
+    let avg;
+    if (sum !== 0) {
+        avg = 100 / sum;
+    }
+
+    const transformedData = data.map(value => value * avg);
+
+    const data2 = {
+        labels: labels,
+        datasets: [
+            {
+                label: question.body,
+                data: transformedData,
+                backgroundColor: colorsGroup,
+                borderColor: borderColors,
+                borderWidth: borderWidthh
+            }
+        ]
+    };
+
+    const options = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        let value = tooltipItem.raw;
+                        return `${value.toFixed(0)}%`;
                     }
                 }
             }
-        };
+        },
+        scales: {
+            y: {
+                ticks: {
+                    callback: function(value) {
+                        return value + '%';
+                    }
+                }
+            }
+        }
+    };
 
-        setChartData(data2);
-        setChartOptions(options);
-    }, []);
+    setChartData(data2);
+    setChartOptions(options);
+}, [data, labels, question.body, colorsGroup, borderColors, borderWidthh]);  
+
 
     return (
         <div className="card">
