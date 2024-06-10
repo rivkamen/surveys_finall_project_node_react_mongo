@@ -111,7 +111,7 @@ const items = [
     return (
     <>
        
-        <div className="card" style={{width:'100%', textAlign:'center' }}>
+        <div className="card" id='surveyCard' style={{width:'100%', textAlign:'center' }}>
             <Card>
             <h1>{survey.title}</h1>
              {/* <Toolbar start={startContent} center={centerContent} end={endContent} />  */}

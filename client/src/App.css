@@ -32,7 +32,30 @@
   background-attachment: fixed;
   
   }
-.App-logo {
+  /* .p-menubar.p-component {
+    background-image: url('../public/image/הרוב-קובע.gif');
+    background-size: 200px auto; 
+    background-position: right;
+    background-repeat: no-repeat;
+} */
+
+/* .p-menubar.p-component {
+  background-image: url('../public/image/הרוב-קובע.gif');
+  background-size: 200px auto; /* Adjust the size as needed */
+  /* background-position: calc(100% - 40px) top; /* Adjust the offset as needed */
+  /* background-repeat: no-repeat; */
+/* }  */
+
+
+.p-menubar.p-component {
+  background-image: url('../public/image/הרוב-קובעע.gif');
+  background-size: 280px auto; /* Adjust the size as needed */
+  background-position: calc(100% - 5%) top; /* Adjust the offset as needed */
+  background-repeat: no-repeat;
+  /* top: -200px; /* Adjust the value to move it higher */
+  /* margin-top: -50px; */ 
+}
+  .App-logo {
   height: 40vmin;
   pointer-events: none;
 }

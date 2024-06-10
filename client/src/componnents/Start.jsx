@@ -138,6 +138,7 @@ import UsersNavBar from './users/UsersNavBar';
 import { useGetUserQuery } from './users/usersApiSlice';
 import NavBar from './NavBar';
 import { useSendMailMutation } from './service/mailApiSlice';
+import DecodeToken from '../DecodeToken';
 
 //import { useNavigate } from 'react-router-dom';
 //z6o1f2n5a8t8p2a5a5n3e1a7h
@@ -165,6 +166,7 @@ const Start=()=>{
         useEffect(()=>{
         if(loginSuccess){    
         dispatch(setToken(data))
+        
         navigate('/')
            
     }

@@ -162,9 +162,11 @@ const About = () => {
 
     return (
         <>
+       <div style={{marginTop:'150px'}}>
            <BarSeg labels={genderLabels} data={countGender} question={''} />
            <PieSeg labels={sectorLabels} data={countSector} question={''} />
            <LineSeg labels={agesLabels} data={countAge} question={''} />
+           </div>
         </>
     );
 };

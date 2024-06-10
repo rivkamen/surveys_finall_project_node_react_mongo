@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
 const BarSeg=(props)=> {
-   var {labels,data,question}=props
+   var {labels,data,question,s}=props
+   
    console.log("data:");
    console.log(data);
     const [chartData, setChartData] = useState({});

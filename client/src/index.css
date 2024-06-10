@@ -52,6 +52,16 @@ div {
     background-attachment: fixed;
 
 }
+.nav{
+  background:url('../public/image/הרוב-קובע.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  background-position: "center";
+  background-attachment: fixed;
+
+
+}
 .answersCard{
   border:'1px';
   border-color: '#e5e7eb';
@@ -92,6 +102,8 @@ font-size: medium;}
   block-size: 100px;
   padding: 4rem;
 margin-top: 0%;
+z-index: 1000; /* Ensure the navbar is on top */
+
 top:0% }
  
  #userCard{
@@ -118,10 +130,14 @@ top:0% }
 .nav{
   position: fixed;
   width: 99%;
+  z-index: 1000; /* Ensure the navbar is on top */
+
 }
 .p-menubar.p-component{
 
   padding: 30;
+  z-index: 1000; /* Ensure the navbar is on top */
+
 
 }
 span.bar{
@@ -196,4 +212,13 @@ div.p-fieldset-content{
   color:white !important;
 
 }
+#userCard.card{
+  margin: auto;
+}
+#surveyCard.card{
+  margin: auto;
 
+}
+video{
+  top:150px;
+}
