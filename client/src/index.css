@@ -217,21 +217,21 @@ div.p-fieldset-content{
   margin: auto;
 }
 #surveyCard.card{
-  margin: auto;
+  margin-right: auto;
   width: 50px;
 
 }
 video{
   top:150px;
 }
-#about,#about3{
+/* #about,#about3{
   width: 500px;
   height: 300px;
   margin: auto;
-}
-#about2{
+} */
+#about,#about3,#about2{
   width: 500px;
-  height: 500px;
+  max-height: 500px;
   margin: auto;
 }
  /* canvas{
@@ -249,4 +249,10 @@ video{
   canvas{
     z-index: 900 !important;
   }
+  #seg.card{
+width: 500px; 
+ }
+ #segg.card{
+  width: 500px; 
+   }
   
