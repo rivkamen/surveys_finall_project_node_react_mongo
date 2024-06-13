@@ -23,6 +23,7 @@ html {
 
 .card {
   /* background: var(--surface-card); */
+  /* margin-top: 60px; */
   padding: 1rem;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -200,9 +201,9 @@ div.p-fieldset-content{
   height: 50px;
 }
 
-#whitwB1 span.p-button-icon.p-c.pi.pi-send::before{
+/* #whitwB1{
   color: white;
-}
+} */
 
 #iconn{
   color:aliceblue !important;
@@ -217,8 +218,35 @@ div.p-fieldset-content{
 }
 #surveyCard.card{
   margin: auto;
+  width: 50px;
 
 }
 video{
   top:150px;
 }
+#about,#about3{
+  width: 500px;
+  height: 300px;
+  margin: auto;
+}
+#about2{
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+ /* canvas{
+  width: 500px;
+  height: 300px;
+ } */
+  /* div.p-card-body{
+    margin: auto;
+    margin-top: 80px;
+  } */
+/*  */
+  div.p-menubar.p-component{
+    z-index: 1000;
+  }
+  canvas{
+    z-index: 900 !important;
+  }
+  

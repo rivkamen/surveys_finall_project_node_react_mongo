@@ -21,8 +21,11 @@ const SurveySegItem=(props)=>{
     );
     return(
         <>
+    
+
         <div className="card " >
-            <Card style={{BlockSize:'250px',width:'50%'}}>
+            
+            <Card /*style={{BlockSize:'250px',width:'50%'}}*/>
             <h1>{survey.title}</h1>
 <div className="card flex justify-content-center">
             <Divider layout="vertical" />

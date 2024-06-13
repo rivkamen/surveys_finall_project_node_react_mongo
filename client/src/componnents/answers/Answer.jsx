@@ -98,7 +98,8 @@ const Answer=(props)=> {
              <div className="flex flex-center card p-fluid p-inputtext-lg" dir='rtl'>
            <div style={{width:'80%'}}>
            <InputText ref={answeRef} defaultValue={answeRef.current} /*value={answeRef.current}*/ /*placeholder={answeRef.current}*/ onChange={()=>{questions[qIndex].answers[index].body=answeRef.current.value}}/></div>
-           <Button icon='pi pi-trash'  onClick={delet}></Button>
+           &nbsp;
+           <Button icon='pi pi-trash'  onClick={delet} style={{backgroundColor:"white", color:"#14B8A6", height:'50px',  width:'50px'}} rounded></Button>
            {/* <InputText ref={answeRef} defaultValue={answeRef.current} onChange={()=>{questions[qIndex].answers[index].body=answeRef.current.value}}/> */}
            {/* <Toolbar start={startContent} center={centerContent} end={endContent} />  */}
         </div>

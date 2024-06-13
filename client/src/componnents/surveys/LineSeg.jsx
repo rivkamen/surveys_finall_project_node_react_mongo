@@ -97,7 +97,7 @@ const LineSeg=(props)=> {
             labels: labels,
             datasets: [
                 {
-                    label: question.body,
+                    label: question.body || "גיל",
                     data: transformedData,
                     backgroundColor: colorsGroup,
                     borderColor: borderColors,
@@ -121,7 +121,7 @@ const LineSeg=(props)=> {
                 y: {
                     ticks: {
                         callback: function(value) {
-                            return value + '%';
+                            return value;
                         }
                     }
                 }

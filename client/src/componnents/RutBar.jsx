@@ -33,7 +33,7 @@ export default function TemplateDemo() {
                     url: 'logout',
                     secondUrl:'login',
                 },
-                { label: 'כל סקרים', icon: 'pi pi-inbox',template: itemRenderer,url:'/Surveys' },
+                { label: 'כל הסקרים', icon: 'pi pi-inbox',template: itemRenderer,url:'/Surveys' },
                 { label: 'סקרים לפילוח', icon: 'pi pi-inbox',template: itemRenderer,url:'/surveySegmentation' },
                 { label: 'סקרים למשתמשים', icon: 'pi pi-list',template: itemRenderer,url:'/UserSurveys'},
                 { label: 'סקרים מפולחים', icon: 'pi pi-inbox',template: itemRenderer,url:'/segments'},

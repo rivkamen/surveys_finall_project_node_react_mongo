@@ -15,8 +15,6 @@ const Surveys = (props) => {
     const { data: surveys = [], isLoading, isError, error, refetch } = useGetSurveysQuery({ status: '' });
     let filtered=[];
     const [visibleNew, setVisibleNew] = useState(false);
-    const [selectedCategories, setSelectedCategories] = useState([]);
-    const [filteredSurveys, setFilteredSurveys] = useState([]);
     const [searchText, setSearchText] = useState('');
 
 
@@ -27,6 +25,9 @@ const Surveys = (props) => {
         { name: 'סקרים מפולחים', key: 'completed' },
         { name: 'בחר הכל', key: 'all' }, // New "all" category
     ];
+
+    const [selectedCategories, setSelectedCategories] = useState([categories.find(category => category.key === 'all')]);    const [filteredSurveys, setFilteredSurveys] = useState([]);
+
 
     useEffect(() => {
         if (selectedCategories.some(category => category.key === 'all')) {
@@ -92,7 +93,7 @@ setFilteredSurveys(filtered);
                     alignItems: 'center',
                     position: 'fixed',
                     right: '0',
-                    top: '125px', // Adjusted from 70px to 150px to move further down
+                    top: '130px', // Adjusted from 70px to 150px to move further down
                     bottom: '0',
                     padding: '20px',
                     backgroundColor: '#f9f9f9',
