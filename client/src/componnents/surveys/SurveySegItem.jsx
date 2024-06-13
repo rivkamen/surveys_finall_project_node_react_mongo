@@ -9,26 +9,26 @@ const SurveySegItem=(props)=>{
     const {survey,refetch}=props
     const [visible,setVisible]=useState(false)
     const endContent = (
-        <React.Fragment>
-            <div className="flex align-items-center gap-3">
+        // <React.Fragment>
+        //     <div className="flex align-items-center gap-3">
                        
-                        <Button icon="pi pi-chart-line" className="p-button-rounded" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}
+                        <Button icon="pi pi-chart-line" className="p-button-rounded" label="לפילוח" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}
                         onClick={()=>{setVisible(true)}}
                         ></Button>
                         
-                    </div>
-        </React.Fragment>
+                    // </div>
+        // {/* </React.Fragment> */}
     );
     return(
         <>
     
 
-        <div className="card " >
+        <div className="card" id="seg">
             
             <Card /*style={{BlockSize:'250px',width:'50%'}}*/>
             <h1>{survey.title}</h1>
 <div className="card flex justify-content-center">
-            <Divider layout="vertical" />
+          
             <p style={{width:'30%',marginRight:0}}>
                 {endContent}
             </p>

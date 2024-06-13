@@ -21,19 +21,19 @@ const UserSurveyItem=(props)=> {
     const [del,setDel]=useState(false)
     
     const endContent = (
-        <React.Fragment>
-            <div className="flex align-items-center gap-3">
-                        {/* <Button icon="pi pi-chart-bar" className="p-button-rounded" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status != 'closed'}
-                         ></Button>
-                          <Button icon="pi pi-lock" className="p-button-rounded"style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}} disabled={survey.status != 'in process'}
-                        onClick={changestatus}></Button>  */}
+        // <React.Fragment>
+            // {/* <div className="flex align-items-center gap-3"> */}
+                        // {/* <Button icon="pi pi-chart-bar" className="p-button-rounded" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status != 'closed'}
+                        //  ></Button>
+                        //   <Button icon="pi pi-lock" className="p-button-rounded"style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}} disabled={survey.status != 'in process'}
+                        // onClick={changestatus}></Button>  */}
                         <Button icon="pi pi-file-edit" label='ענה על הסקר' className="p-button-rounded" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}
                         onClick={()=>{setVisible(true)}}
                         ></Button>
-                        {/* <Button icon="pi pi-times" className="p-button-rounded"style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status === 'in process'}
-                        onClick={()=>{setDel(true); }}></Button>  */}
-                    </div>
-        </React.Fragment>
+                    //     {/* <Button icon="pi pi-times" className="p-button-rounded"style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status === 'in process'}
+                    //     onClick={()=>{setDel(true); }}></Button>  */}
+                    // // </div>
+        // </React.Fragment>
     );
    
     return (<>
