@@ -24,7 +24,7 @@ export default function TemplateDemo() {
    
    
     const items = users==='admin'?[
-                { id:"barIcon1",label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
+             
                 {
                     class:"barIcon",
                     label: 'יציאה',secondLabel:'התחברות',icon: 'pi pi-sign-out',
@@ -33,13 +33,17 @@ export default function TemplateDemo() {
                     url: 'logout',
                     secondUrl:'login',
                 },
-                { label: 'כל הסקרים', icon: 'pi pi-inbox',template: itemRenderer,url:'/Surveys' },
-                { label: 'סקרים לפילוח', icon: 'pi pi-inbox',template: itemRenderer,url:'/surveySegmentation' },
-                { label: 'סקרים למשתמשים', icon: 'pi pi-list',template: itemRenderer,url:'/UserSurveys'},
                 { label: 'סקרים מפולחים', icon: 'pi pi-inbox',template: itemRenderer,url:'/segments'},
-                { label: '?מי אנחנו', icon: 'pi pi-trophy',template: itemRenderer,url:'/we'}
+                { label: 'סקרים לפילוח', icon: 'pi pi-inbox',template: itemRenderer,url:'/surveySegmentation' },
+
+                { label: 'סקרים למשתמשים', icon: 'pi pi-list',template: itemRenderer,url:'/UserSurveys'},
+
+                { label: 'כל הסקרים', icon: 'pi pi-inbox',template: itemRenderer,url:'/Surveys' },
+
+                { label: '?מי אנחנו', icon: 'pi pi-trophy',template: itemRenderer,url:'/we'},
+                { id:"barIcon1",label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
             ]:users==='user'?[
-                { label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
+               
                 {
                     label: 'יציאה',secondLabel:'התחברות',icon: 'pi pi-sign-out',
                     secondIcon:'pi pi-sign-in',
@@ -47,11 +51,13 @@ export default function TemplateDemo() {
                     url: 'logout',
                     secondUrl:'login',
                 },
-                { label: 'סקרים למשתמשים', icon: 'pi pi-list',template: itemRenderer,url:'/UserSurveys'},
+               
                 { label: 'סקרים מפולחים', icon: 'pi pi-inbox',template: itemRenderer,url:'/segments'},
-                { label: '?מי אנחנו', icon: 'pi pi-trophy',template: itemRenderer,url:'/we'}
+                { label: 'סקרים למשתמשים', icon: 'pi pi-list',template: itemRenderer,url:'/UserSurveys'},
+                { label: '?מי אנחנו', icon: 'pi pi-trophy',template: itemRenderer,url:'/we'},
+                { label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
             ]:[
-                { class:"barIcon",label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
+                
                 {class:"barIcon",
                     label: 'יציאה',secondLabel:'התחברות',icon: 'pi pi-sign-out',
                     secondIcon:'pi pi-sign-in',
@@ -59,7 +65,8 @@ export default function TemplateDemo() {
                     url: 'logout',
                     secondUrl:'login',
                 },
-                { class:"barIcon",label: '?מי אנחנו', icon: 'pi pi-trophy',template: itemRenderer,url:'/we'}
+                { class:"barIcon",label: '?מי אנחנו', icon: 'pi pi-trophy',template: itemRenderer,url:'/we'},
+                { class:"barIcon",label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
             ]
        
 

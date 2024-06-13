@@ -137,7 +137,7 @@ console.log(surveysForUsers);
     const footerContent = (
         <div>
             <Button label="לא עכשיו" icon="pi pi-times" onClick={async() =>{ await setVisible(false);setVisibleS(false)}} className="p-button-text" />
-            <Button label="שלח" icon="pi pi-check" onClick={async() => {setVisible(false); await changestatus(); await sendE(); setVisibleS(false) }} autoFocus />
+            <Button label="שלח" icon="pi pi-check" onClick={async() => {setVisible(false); await changestatus(); await sendE(); /*setVisibleS(false)*/ }} autoFocus />
         </div>
     );
 

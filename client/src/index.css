@@ -216,11 +216,11 @@ div.p-fieldset-content{
 #userCard.card{
   margin: auto;
 }
-#surveyCard.card{
+/* #surveyCard.card{
   margin-right: auto;
   width: 50px;
 
-}
+} */
 video{
   top:150px;
 }
@@ -243,8 +243,13 @@ video{
     margin-top: 80px;
   } */
 /*  */
+#surveyCard.card{
+  width: 700px; 
+  margin-right:'20%' !important;
+
+}
   div.p-menubar.p-component{
-    z-index: 1000;
+    z-index: 100000;
   }
   canvas{
     z-index: 900 !important;
@@ -255,4 +260,7 @@ width: 500px;
  #segg.card{
   width: 500px; 
    }
-  
+   /* .p-steps.p-component.p-readonly.m-2.pt-4,button{
+    z-index: 500;
+   }
+   */

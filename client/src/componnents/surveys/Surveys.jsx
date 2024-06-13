@@ -76,7 +76,7 @@ setFilteredSurveys(filtered);
     return (
         <>
             <div className="cardSurvey" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center',marginRight:'20%' }}>
                     {filteredSurveys.map((s) => <SurveyItem key={s.id} survey={s} refetch={refetch} />)}
                     
                     <Dialog visible={visibleNew} style={{ width: '80vw', height: '200vw' }} onHide={() => setVisibleNew(false)}>
