@@ -161,13 +161,14 @@ const About = () => {
 
     return (
         <>
-       <div style={{marginTop:'150px'}}>
-        <Card id="about">
+       <div style={{marginTop:'150px'}} className="chart-container">
+        <div className="chart">
+        <Card id="about" className="charta">
            <BarSeg labels={genderLabels} data={countGender} question={''} /></Card><br/><br/><br/>
-           <Card id="about2">
+           <Card id="about2" className="charta">
            <PieSeg labels={sectorLabels} data={countSector} question={''} /></Card><br/><br/><br/>
-           <Card id="about3">
-           <LineSeg labels={agesLabels} data={countAge} question={''} /></Card>
+           <Card id="about3" className="charta">
+           <LineSeg labels={agesLabels} data={countAge} question={''} /></Card></div>
            </div>
         </>
     );

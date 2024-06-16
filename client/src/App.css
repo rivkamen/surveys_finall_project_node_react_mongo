@@ -52,6 +52,7 @@
   background-size: 280px auto; /* Adjust the size as needed */
   background-position: calc(100% - 5%) top; /* Adjust the offset as needed */
   background-repeat: no-repeat;
+
   /* top: -200px; /* Adjust the value to move it higher */
   /* margin-top: -50px; */ 
 }

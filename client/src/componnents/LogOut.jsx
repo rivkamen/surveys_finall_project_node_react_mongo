@@ -40,7 +40,7 @@ export default function Logout() {
     useEffect(() => {
         dispatch(removeToken());
         dispatch(apiSlice.util.resetApiState());
-        navigate("/");
+        navigate("/user");
     }, []);
 
     return null;

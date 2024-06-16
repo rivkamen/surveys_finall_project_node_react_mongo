@@ -32,6 +32,7 @@ import TemplateDemo from './componnents/RutBar';
 import Logout from './componnents/LogOut';
 import RutBar from './componnents/RutBar'
 import Bar from './Bar';
+import HomePageUser from './componnents/HomePageUser';
 function App() {
 // const [rol,setRol]=useState(0);
  const[loginSuccess,setLoginSuccess]=useState(false)
@@ -83,6 +84,8 @@ function App() {
       {/* <BrowserRouter> */}
           <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/user" element={<HomePageUser />} />
+
           <Route path="/bar" element={<RutBar />} />
           <Route path='/Surveys' element={<Surveys />} />
           <Route path='/login' element={<Start />} />

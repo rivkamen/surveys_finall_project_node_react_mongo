@@ -103,7 +103,6 @@ font-size: medium;}
   block-size: 100px;
   padding: 4rem;
 margin-top: 0%;
-z-index: 1000; /* Ensure the navbar is on top */
 
 top:0% }
  
@@ -131,13 +130,12 @@ top:0% }
 .nav{
   position: fixed;
   width: 99%;
-  z-index: 1000; /* Ensure the navbar is on top */
+  z-index: 10000;
 
 }
 .p-menubar.p-component{
 
   padding: 30;
-  z-index: 1000; /* Ensure the navbar is on top */
 
 
 }
@@ -248,19 +246,88 @@ video{
   margin-right:'20%' !important;
 
 }
-  div.p-menubar.p-component{
-    z-index: 100000;
-  }
-  canvas{
-    z-index: 900 !important;
-  }
+ 
   #seg.card{
 width: 500px; 
  }
  #segg.card{
   width: 500px; 
    }
-   /* .p-steps.p-component.p-readonly.m-2.pt-4,button{
-    z-index: 500;
-   }
-   */
+   .p-button {
+    margin: 0;
+    display: inline-flex;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+    vertical-align: bottom;
+    text-align: center;
+    overflow: hidden;
+  position: static;}
+  .p-overlay-badge .p-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0;
+    margin: 0;
+}
+  .p-overlay-badge {
+    position: relative;
+    z-index: 3;
+}
+.p-steps.p-component.p-readonly.m-2.pt-4{
+  position: relative;
+  z-index:0;
+
+}
+
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.chart {
+  flex: 1;
+}
+.charta {
+  width: 100%; /* Default full width */
+}
+.vi{
+  margin-top: 200px;
+}
+@media screen and (min-width: 300px) {
+  .charta {
+    width: 100%; 
+  }
+  /* .homePage{
+    
+  } */
+  .vi{
+    width:90%;
+  }
+  
+}
+/* Medium Size Screens */
+@media screen and (min-width: 600px) {
+  .charta {
+    width: 45%; /* 45% width for medium screens */
+  }
+  .vi{
+    width:80%;
+  }
+}
+
+/* Large Size Screens */
+@media screen and (min-width: 900px) {
+  .charta {
+    width: 30%; /* 30% width for large screens */
+
+  }
+  .vi{
+    width:60%;
+  }
+}
+
+
+
+  

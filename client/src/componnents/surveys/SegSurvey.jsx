@@ -31,6 +31,7 @@ const [saveDisable,setSaveDisable]=useState(false)
 
 
          StatusSurveyFunc({_id:survey._id,status:'completed'}).then(()=>{console.log('in trouble');refetch()}) 
+        
     };
     
     

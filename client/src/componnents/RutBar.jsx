@@ -1,6 +1,7 @@
 
 
 import logo from '../logo.svg';
+
 import '../App.css';
 import {Link, useNavigate } from 'react-router-dom';
 import {useSelector } from 'react-redux';
@@ -55,7 +56,7 @@ export default function TemplateDemo() {
                 { label: 'סקרים מפולחים', icon: 'pi pi-inbox',template: itemRenderer,url:'/segments'},
                 { label: 'סקרים למשתמשים', icon: 'pi pi-list',template: itemRenderer,url:'/UserSurveys'},
                 { label: '?מי אנחנו', icon: 'pi pi-trophy',template: itemRenderer,url:'/we'},
-                { label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
+                { label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/user' },
             ]:[
                 
                 {class:"barIcon",
@@ -66,7 +67,7 @@ export default function TemplateDemo() {
                     secondUrl:'login',
                 },
                 { class:"barIcon",label: '?מי אנחנו', icon: 'pi pi-trophy',template: itemRenderer,url:'/we'},
-                { class:"barIcon",label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
+                { class:"barIcon",label: '!דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/user' },
             ]
        
 

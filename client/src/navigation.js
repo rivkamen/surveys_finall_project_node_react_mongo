@@ -1,5 +1,6 @@
 export const items=[
     { label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/' },
+    { label: 'דף הבית', icon: 'pi pi-home',template: itemRenderer,url:'/user' },
     {
         label: 'יציאה',secondLabel:'התחברות',icon: 'pi pi-sign-out',
         secondIcon:'pi pi-sign-in',

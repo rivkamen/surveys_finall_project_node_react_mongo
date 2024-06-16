@@ -67,14 +67,14 @@ export default function NavBar(props){
     else{
         if(role==='user'){
        items = [
-            { label: 'home', icon: 'pi pi-home',command:()=>{navigate('/')} },
+            { label: 'home', icon: 'pi pi-home',command:()=>{navigate('/user')} },
             { label: 'userSurveys', icon: 'pi pi-list',command:()=>{navigate('/UserSurveys')} },
             { label: 'segmented', icon: 'pi pi-inbox',command:()=>{navigate('/segments')} }
 
     ]} else{
         items = [
             { label: 'כניסה', icon: 'pi pi-check-circle',command:()=>{navigate('/login')} },
-            { label: 'דף הבית', icon: 'pi pi-home',command:()=>{navigate('/')} },
+            { label: 'דף הבית', icon: 'pi pi-home',command:()=>{navigate('/user')} },
             { label: '?מי אנחנו', icon: 'pi pi-inbox',command:()=>{navigate('/we')} }
 
     ]

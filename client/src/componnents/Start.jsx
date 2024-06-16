@@ -154,7 +154,8 @@ const Start=()=>{
 
         const dispatch = useDispatch()
         const navigate = useNavigate()
-
+        let decodeToken;
+        let users;
         const{
             data:myUser,
             isLoading:userIsLoading,
@@ -166,8 +167,13 @@ const Start=()=>{
         useEffect(()=>{
         if(loginSuccess){    
         dispatch(setToken(data))
-        
-        navigate('/')
+        decodeToken =DecodeToken()
+        console.log("lllllllllllllll"); 
+        users=decodeToken?.roles;
+        console.log(users);
+        users==='admin'?navigate('/'):navigate('/user')
+
+
            
     }
     else{
