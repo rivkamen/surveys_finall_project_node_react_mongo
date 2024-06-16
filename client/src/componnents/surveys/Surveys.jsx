@@ -26,7 +26,8 @@ const Surveys = (props) => {
         { name: 'בחר הכל', key: 'all' }, // New "all" category
     ];
 
-    const [selectedCategories, setSelectedCategories] = useState([categories.find(category => category.key === 'all')]);    const [filteredSurveys, setFilteredSurveys] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([categories.find(category => category.key === 'all')]);  
+      const [filteredSurveys, setFilteredSurveys] = useState([]);
 
 
     useEffect(() => {
@@ -51,28 +52,29 @@ const Surveys = (props) => {
         console.log(filtered);
 setFilteredSurveys(filtered);
           };
+
     const onCategoryChange = (e) => {
         let _selectedCategories = [...selectedCategories];
-
+    
         if (e.checked) {
             if (e.value.key === 'all') {
-                _selectedCategories = categories.filter(c => c.key !== 'all'); // Select all categories except "all"
+                _selectedCategories = [categories.find(category => category.key === 'all')]; // Select "כל הסקרים" only
+                setFilteredSurveys(surveys); // Show all surveys when selecting "כל הסקרים"
             } else {
                 _selectedCategories.push(e.value);
-                // Ensure "all" is unchecked if other checkboxes are checked
+                // Ensure "כל הסקרים" is unchecked if other checkboxes are checked
                 _selectedCategories = _selectedCategories.filter(category => category.key !== 'all');
             }
         } else {
             if (e.value.key === 'all') {
-                _selectedCategories = [];
+                _selectedCategories = []; // Uncheck all other categories when "כל הסקרים" is unchecked
             } else {
                 _selectedCategories = _selectedCategories.filter(category => category.key !== e.value.key);
             }
         }
-
+    
         setSelectedCategories(_selectedCategories);
     };
-
     return (
         <>
             <div className="cardSurvey" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>

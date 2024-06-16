@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Toolbar } from 'primereact/toolbar';
 import { Button } from 'primereact/button';
 import { SplitButton } from 'primereact/splitbutton';
@@ -26,8 +26,20 @@ const SurveyItem=(props)=> {
 
     const [del,setDel]=useState(false)
     const status=["creating","in process","closed","completed"]
-    const [activeIndex, setActiveIndex] = useState(status.indexOf(survey.status));
+    
+    // const [activeIndex, setActiveIndex] = useState(survey.status==="creating"?0:survey.status==="in process"?1:survey.status==="closed"?2:3);
+//    console.log(status.indexOf(survey.status)); 
+//     console.log(survey);
+// console.log(survey.status);
+const [activeIndex, setActiveIndex] = useState(0);
 
+useEffect(() => {
+    const index = status.indexOf(survey.status);
+    if (index !== -1) {
+        setActiveIndex(index);
+    }
+}, [survey.status]);
+console.log(activeIndex); 
     const [changeStatusFunc, {isError, error, isSuccess,data}] =useStatusSurveyMutation()      
     const changestatus = (e) => {
             //    e.preventDefault();
@@ -54,6 +66,7 @@ const statusFunc=()=>{
     survey.status==='in process'?setVisible3(true):
     survey.status==='closed'?setVisible1(true):
     setVisible2(true)
+    console.log(survey.status);
 }
 
 const items = [
@@ -87,6 +100,7 @@ const items = [
 
     const centerContent = (
         <div  >
+            {console.log(activeIndex)}
         <Steps model={items} activeIndex={activeIndex} readOnly={activeIndex+1} className="m-2 pt-4" 
         />
    </div>
@@ -107,7 +121,7 @@ const items = [
                     </div>
         </React.Fragment>
     );
-   
+    
     return (
     <>
        
