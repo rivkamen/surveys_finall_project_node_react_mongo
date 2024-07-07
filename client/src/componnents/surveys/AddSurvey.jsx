@@ -21,7 +21,7 @@ import { PanelMenu } from 'primereact/panelmenu';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 
 const AddSurvey=(props)=>{
-    const {refetch,setVisible1}=props
+    const {refetch,setVisibleNew}=props
     let [questions,setQuestions]=useState([]); 
     const [ed,setEd]=useState(false)
     const [quest,setQuest]=useState(false) 
@@ -36,7 +36,7 @@ const AddSurvey=(props)=>{
     const [addQuestionFunc,{isError:addQuestionIsError,error:addQuestionError,isSuccess:addQuestionIsSuccess,data:surveyQuestion}]=useAddQuestionMutation()
     // const [changeStatusFunc, {isError:changeStatusIsError, error:changeStatusError, isSuccess:changeStatusIsSuccess,data:changeStatus}] =useStatusSurveyMutation()
     const [updateSurveyFunc, {isError:updateSurveyIsError, error:updateSurveyError, isSuccess:updateSurveyIsSuccess,data:updatesurvey}] = useUpdateSurveyMutation()
-
+    const [visibleS,setVisibleS]=useState(false);
     const add = async (e) => { 
     //    let quest=[{body:"try",answers:[{body:"catch"}]},{body:"tryagain",answers:[{body:"catchagain"}]}]
         // console.log("add");    //e.preventDefault();  
@@ -193,7 +193,7 @@ return isFormFieldInvalid(name) ?  <small className="p-error">{formik.errors[nam
       <div style={{ flex: 1, textAlign: 'center' }}> 
         {questions?.map((q,i)=><Question question={q} questions={questions} index={i} refetch={refetch}/>)} 
 
-{send && <SendSurvey visible={send} setVisible={setSend} setVisibleS={setVisible1} refetch={refetch} survey={survey.data}/>}
+{send && <SendSurvey visible={send} setVisible={setSend} setVisibleS={setVisibleNew} refetch={refetch} survey={survey.data}/>}
 </div> 
 </div> 
 

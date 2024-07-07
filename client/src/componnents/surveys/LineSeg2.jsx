@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
-const LineSeg=(props)=> {
-   var {labels,data,question}=props
+const LineSeg2=(props)=> {
+   var {labels,data,question,i}=props
    console.log("hhhhhhhhhhhhhh");
    console.log(data);
    const arr = Object.entries(data).reduce((acc, [gender, count], index) => {
     acc[index] = count;
     return acc;
 }, []);
-console.log('genderArr');
-console.log(arr);
+const dataKeys = Object.keys(data);
+    const label = dataKeys.map(key => key);
 
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
@@ -41,72 +41,24 @@ console.log(arr);
 
     ])
 
-    // let sum=0;
-    // let avg;
-    // data.map(value => (sum+=value));
-    // if(sum!=0){
-    // avg = 100/sum;}
-    // const transformedData = data.map(value => (value*avg));
-
-    // const [borderWidthh,setBorderWidthh]=useState('1')
-
-
-    // useEffect(() => {
-    //     const data2 = {
-    //         labels: labels,
-    //         datasets: [
-    //             {
-    //                 label: question.body,
-    //                 data: transformedData,
-    //                 backgroundColor: colorsGroup,
-    //                 borderColor:borderColors,
-    //                 borderWidth: borderWidthh,
-    //                 tension: 0.4
-    //             }
-    //         ]
-    //     };
-    //     const options = {
-    //         plugins: {
-    //             tooltip: {
-    //                 callbacks: {
-    //                     label: function(tooltipItem) {
-    //                         let value = tooltipItem.raw;
-    //                         return `${value.toFixed(0)}%`;
-    //                     }
-    //                 }
-    //             }
-    //         },
-    //         scales: {
-    //             y: {
-    //                 ticks: {
-    //                     callback: function(value) {
-    //                         return value + '%';
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     };
-
-    //     setChartData(data2);
-    //     setChartOptions(options);
-    // }, []);
+    
     const [borderWidthh,setBorderWidthh]=useState('1')
 
     useEffect(() => {
         let sum = 0;
-        data.forEach(value => (sum += value));
+        arr.forEach(value => (sum += value));
         let avg;
         if (sum !== 0) {
             avg = 100 / sum;
         }
     
-        const transformedData = data.map(value => value * avg);
+        const transformedData = arr.map(value => value * avg);
     
         const data2 = {
-            labels: labels,
+            labels: label,
             datasets: [
                 {
-                    label: question.body || "גיל",
+                    label:question.answers[i].body,
                     data: transformedData,
                     backgroundColor: colorsGroup,
                     borderColor: borderColors,
@@ -147,7 +99,7 @@ console.log(arr);
         </div>
     )
 }
-export default LineSeg
+export default LineSeg2
 
 
 /* datasets: [

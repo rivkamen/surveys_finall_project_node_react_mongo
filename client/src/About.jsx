@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import BarSeg from "./componnents/surveys/BarSeg"
 import LineSeg from "./componnents/surveys/LineSeg"
 import PieSeg from "./componnents/surveys/PieSeg"
+import BigBarSeg from "./componnents/surveys/BigBarSeg"
+
 import { useGetUsersQuery } from "./componnents/users/usersApiSlice"
 import { Card } from "primereact/card"
 const About = () => {
@@ -59,31 +61,7 @@ const About = () => {
                     }
                 });
             
-                // setCountAge(prevCountAge => {
-                //     if (u.birthDate instanceof Date && !isNaN(u.birthDate)) {
-                //         const age = d - new Date(u.birthDate).getFullYear();
-                //         console.log("age");
-                //         console.log(age);
-                //         if (age >= 0 && age <= 10) {
-                //             return [
-                //                 prevCountAge[0] + 1, prevCountAge[1], prevCountAge[2], prevCountAge[3], prevCountAge[4],
-                //                 prevCountAge[5], prevCountAge[6], prevCountAge[7], prevCountAge[8], prevCountAge[9], prevCountAge[10]
-                //             ];
-                //         } else if (age > 10 && age <= 20) {
-                //             return [
-                //                 prevCountAge[0], prevCountAge[1] + 1, prevCountAge[2], prevCountAge[3], prevCountAge[4],
-                //                 prevCountAge[5], prevCountAge[6], prevCountAge[7], prevCountAge[8], prevCountAge[9], prevCountAge[10]
-                //             ];
-                //         } // Add similar conditions for other age ranges
-            
-                //         return prevCountAge;
-                //     } else {
-                //         console.log("birthdate");
-                //         console.log(u.birthDate);
-                //         return prevCountAge;
-                //     }
-                // });
-
+               
                 setCountAge(prevCountAge => {
                     if (u.birthDate) {
                         const birthYear = new Date(u.birthDate).getFullYear();
@@ -169,6 +147,9 @@ const About = () => {
            <PieSeg labels={sectorLabels} data={countSector} question={''} /></Card><br/><br/><br/>
            <Card id="about3" className="charta">
            <LineSeg labels={agesLabels} data={countAge} question={''} /></Card></div>
+           {/* <Card id="about4" className="charta"> */}
+           {/* <BigBarSeg secLabels={sectorLabels} labels={sectorLabels} /></Card><br/><br/><br/> */}
+
            </div>
         </>
     );

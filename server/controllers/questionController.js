@@ -80,7 +80,7 @@ const deleteQuestion=async(req,res)=>{
 
 }
 const chooseSeg=async(req,res)=>{
-    const{_id,questionId,kind,note}=req.body
+    const{_id,questionId,kind,choose,note}=req.body
     const survey=await Survey.findById(_id).exec()
     if(!survey){
         return res.status(400).json({message:"Survey not found"})
@@ -93,7 +93,7 @@ const chooseSeg=async(req,res)=>{
 if(kind)
 {
 
-    const kindArr=["תרשים עוגה","גרף","היסטוגרמה"]
+    const kindArr=["תרשים מקלות מורכב","תרשים עוגה","גרף","היסטוגרמה"]
     const k=kindArr.find(s=>s==kind)
     if(!k)
     {
@@ -102,7 +102,18 @@ if(kind)
     
     question.segmentation.kind=kind
 }
-
+if(choose)
+    {
+    
+        const chooseArr=["גיל","מגדר","מגזר"]
+        const c=chooseArr.find(s=>s==choose)
+        if(!c)
+        {
+            return res.status(401).json({message:"choose are not valid"})
+        }
+        
+        question.segmentation.choose=choose
+    }
 if(note)
     question.segmentation.note=note
 const updatesurvey= await survey.save()   

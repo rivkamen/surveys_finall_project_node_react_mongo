@@ -17,15 +17,26 @@ const SegSurvey=(props)=>{
 const [saveDisable,setSaveDisable]=useState(false)
     let [text, setText] = useState(survey.questions.map(q=>{return{_id:q._id,text:q.segmentation.note}}));
     let [select,setSelect]=useState(survey.questions.map(q=>{return{_id:q._id,select:q.segmentation.kind}})||{_id:'',select:''})
-  
+    let [wichDataSelect, setWichDataSelect]=useState(survey.questions.map(q=>{return{_id:q._id,choose:q.segmentation.choose}})||{_id:'',choose:''})
   const [ChooseSegQuestionFunc, {isError, error, isSuccess,data}] =useChooseSegQuestionMutation()
     const chooseSegment = (e) => {
-        if(select){
-         select.map(q=>ChooseSegQuestionFunc({_id:survey._id,questionId:q._id,kind:q.select.cname,note:text[text.indexOf(text.find(i=>i._id==q._id))].text}).then(()=>refetch()))}
-         else{
-         }
+        if(select)
+          {
+            console.log("1");
+            select.map(q=>ChooseSegQuestionFunc({_id:survey._id,questionId:q._id,kind:q.select.cname,note:text[text.indexOf(text.find(i=>i._id==q._id))].text}))
+          }
+          
+          if(wichDataSelect){
+            console.log('33333333');
+            wichDataSelect.map(q=>ChooseSegQuestionFunc({_id:survey._id,questionId:q._id,choose:q.choose.cname}).then(()=>refetch()))
+          }
+    
     };
-
+  //   const chooseWichSegment = (e) => {
+  //     if(wichDataSelect){
+  //       wichDataSelect.map(q=>ChooseWichSegQuestionFunc({_id:survey._id,questionId:q._id,kind:q.wichDataSelect.cname,note:text[text.indexOf(text.find(i=>i._id==q._id))].text}).then(()=>refetch()))}
+      
+  // };
     const [StatusSurveyFunc, {isError1, error1, isSuccess1,data1}] =useStatusSurveyMutation()
     const changeStatus = (e) => {
 
@@ -40,7 +51,7 @@ const [saveDisable,setSaveDisable]=useState(false)
         <>
 
        
-        {survey?.questions.map(q=><SegQuestion select={select} setSelect={setSelect} text={text} setText={setText} question={q}/>)}
+        {survey?.questions.map(q=><SegQuestion selectWich={wichDataSelect} setSelectWich={setWichDataSelect} select={select} setSelect={setSelect} text={text} setText={setText} question={q}/>)}
         <Button  onClick={chooseSegment} icon="pi pi-save" label="שמור" rounded style={{backgroundColor:"#e5e7eB", color:"#14B8A6"}}/> 
         <Button  disabled={saveDisable} style={{backgroundColor:"#e5e7eB", color:"#14B8A6"}} onClick={async()=>{await chooseSegment(); await setSaveDisable(true); changeStatus();}} icon="pi pi-send" label="שלח" rounded /> 
         </>

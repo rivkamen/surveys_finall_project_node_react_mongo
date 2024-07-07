@@ -292,12 +292,19 @@ width: 500px;
 .charta {
   width: 100%; /* Default full width */
 }
+.sizeOfChart{
+  width: 90%; /* Default full width */
+
+}
 .vi{
   margin-top: 200px;
 }
 @media screen and (min-width: 300px) {
   .charta {
     width: 100%; 
+  }
+  .sizeOfChart{
+    width: 50%;
   }
   /* .homePage{
     
@@ -315,6 +322,9 @@ width: 500px;
   .vi{
     width:80%;
   }
+  .sizeOfChart{
+    width: 50%;
+  }
 }
 
 /* Large Size Screens */
@@ -327,7 +337,11 @@ width: 500px;
     width:60%;
   }
 }
-
+.j{
+  text-align: center;
+  align-items: center;
+  size: 50px;
+}
 
 
   

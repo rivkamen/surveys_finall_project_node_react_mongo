@@ -191,7 +191,7 @@ const Start=()=>{
     
     return(
         <>
-        
+        <br/> <br/> <br/> <br/> <br/>
         <div className="card" >
             <div className="flex flex-column md:flex-row" style={{marginTop:'100px'}}>
                 <div className="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">

@@ -44,15 +44,26 @@ const Surveys = (props) => {
     const onSearchChange = (e) => {
         setSearchText(e.target.value);
       };
-      const filterSurveys = (surveys, searchText) => {
-        console.log("filter");
-        console.log(surveys);
-        filtered= surveys.filter(survey => survey.title && survey.title.toLowerCase().includes(searchText.toLowerCase()));
-        console.log(searchText);
-        console.log(filtered);
-setFilteredSurveys(filtered);
-          };
-
+//       const filterSurveys = (surveys, searchText) => {
+//         console.log("filter");
+//         console.log(surveys);
+//         filtered= surveys.filter(survey => survey.title && survey.title.toLowerCase().includes(searchText.toLowerCase()));
+//         console.log(searchText);
+//         console.log(filtered);
+// setFilteredSurveys(filtered);
+//           };
+const filterSurveys = (surveys, searchText) => {
+    console.log("filter");
+    let filteredSurveys = [];
+    if (selectedCategories.some(category => category.key === 'all')) {
+        filteredSurveys = surveys.filter(survey => survey.title.toLowerCase().includes(searchText.toLowerCase()));
+    } else {
+        let selectedKeys = selectedCategories.map(category => category.key);
+        filteredSurveys = surveys.filter(survey => selectedKeys.includes(survey.status) && survey.title.toLowerCase().includes(searchText.toLowerCase()));
+    }
+    
+    setFilteredSurveys(filteredSurveys);
+};
     const onCategoryChange = (e) => {
         let _selectedCategories = [...selectedCategories];
     

@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
 import { ZIndexUtils } from 'primereact/utils';
-const BarSeg=(props)=> {
-   var {labels,data,question,s,a}=props
+const BarSeg2=(props)=> {
+   var {labels,data,question,s,a,i}=props
    console.log("gvfcdxszdxcfvgbhnj");
    console.log("data:");
    console.log(data);
    let c;
-   let ds;
+   
+   const arr = Object.entries(data).reduce((acc, [o, count], index) => {
+    acc[index] = count;
+    return acc;
+}, []);
+const dataKeys = Object.keys(data);
+    const label = dataKeys.map(key => key);
 
-       const [chartData, setChartData] = useState({});
+    const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
     const [colorsGroup,setColorsGroup]=useState([
         'rgb(64, 224, 208)',   // Turquoise
@@ -42,22 +48,21 @@ const BarSeg=(props)=> {
 
 
     const [borderWidthh,setBorderWidthh]=useState('1')
-
     useEffect(() => {
         let sum = 0;
-        data.forEach(value => (sum += value));
+        arr.forEach(value => (sum += value));
         let avg;
         if (sum !== 0) {
             avg = 100 / sum;
         }
     
-        const transformedData = data.map(value => value * avg);
+        const transformedData = arr.map(value => value * avg);
     
         const data2 = {
-            labels: labels,
+            labels: label,
             datasets: [
                 {
-                    label: question.body || "מגדר",
+                    label: question.answers[i].body,
                     data: transformedData,
                     backgroundColor: colorsGroup,
                     borderColor: borderColors,
@@ -98,5 +103,5 @@ const BarSeg=(props)=> {
         </div>
     )
 }
-export default BarSeg
+export default BarSeg2
         

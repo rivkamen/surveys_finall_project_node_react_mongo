@@ -26,7 +26,7 @@ const IsChange=(props)=>{
 
     return (
         <div className="card flex justify-content-center">
-            <Dialog visible={visible} style={{ width: '30vw' }} onHide={async() =>{ await setVisible(false);setVisibleS(false)}} footer={footerContent}>
+            <Dialog visible={visible} style={{ width: '30vw' }} onHide={async() =>{ await setVisibleS(false)}} footer={footerContent}>
                 <p className="m-0" style={{textAlign:'center'}}>
                     ?לנעול סקר</p>
             </Dialog>
