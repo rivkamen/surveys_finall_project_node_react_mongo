@@ -39,7 +39,6 @@ useEffect(() => {
         setActiveIndex(index);
     }
 }, [survey.status]);
-console.log(activeIndex); 
     const [changeStatusFunc, {isError, error, isSuccess,data}] =useStatusSurveyMutation()      
     const changestatus = (e) => {
             //    e.preventDefault();
@@ -66,7 +65,6 @@ const statusFunc=()=>{
     survey.status==='in process'?setVisible3(true):
     survey.status==='closed'?setVisible1(true):
     setVisible2(true)
-    console.log(survey.status);
 }
 
 const items = [
@@ -100,7 +98,6 @@ const items = [
 
     const centerContent = (
         <div  >
-            {console.log(activeIndex)}
         <Steps model={items} activeIndex={activeIndex} readOnly={activeIndex+1} className="m-2 pt-4" 
         />
    </div>

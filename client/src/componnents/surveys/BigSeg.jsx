@@ -1,114 +1,4 @@
-// import { Card } from "primereact/card";
-// import BarSeg from "./BarSeg";
-// import LineSeg from "./LineSeg";
-// import PieSeg from "./PieSeg";
-// import { Divider } from "primereact/divider";
 
-// const BigSeg=(props)=> {
-//     var {labels,data,question,s,a,line,bar,pie,bigBar}=props
-// let ds;
-// if(line==="line"){
-//    if(a==="gender"){
-//     ds=question.answers.map(a=>a.gender)
-//     {ds.map((sector, index) => (
-        
-//         <LineSeg key={index} labels={labels} data={sector} question={question}  a={a} />
-//     ))}
-//    }
-//    else
-//    if(a==="sector"){
-//     ds=question.answers.map(a=>a.sector)
-//     {ds.map((sector, index) => (
-        
-//         <LineSeg key={index} labels={labels} data={sector} question={question}  a={a} />
-//     ))}
-// }
-//     else
-//     if(a==="age")
-//         {
-//             ds=question.answers.map(a=>a.age)
-//             {ds.map((sector, index) => (
-                
-//                 <LineSeg key={index} labels={labels} data={sector} question={question} a={a} />
-//             ))}  
-//         }
-//     else{
-//         <LineSeg labels={labels} data={data} question={question}a={a} />
-
-//     }
-// }
-// else
-//     if(line==="bar"){
-//         if(a==="gender"){
-//          ds=question.answers.map(a=>a.gender)
-//          {ds.map((sector, index) => (
-             
-//              <BarSeg key={index} labels={labels} data={sector} question={question} a={a} />
-//          ))}
-//         }
-//         else
-//         if(a==="sector"){
-//          ds=question.answers.map(a=>a.sector)
-//          {ds.map((sector, index) => (
-             
-//              <BarSeg key={index} labels={labels} data={sector} question={question} a={a} />
-//          ))}
-//      }
-//      else
-//      if(a==="age")
-//          {
-//              ds=question.answers.map(a=>a.age)
-//              {ds.map((sector, index) => (
-                 
-//                  <BarSeg key={index} labels={labels} data={sector} question={question} a={a} />
-//              ))}  
-//          }
-//          else{
-//              <BarSeg labels={labels} data={data} question={question}  a={a} />
-     
-//          }
-//      }
-// else
-//     if(line==="pie"){
-//     if(a==="gender"){
-//      ds=question.answers.map(a=>a.gender)
-//      {ds.map((sector, index) => (
-         
-//          <PieSeg key={index} labels={labels} data={sector} question={question} a={a} />
-//      ))}
-//     }
-//     else
-//     if(a==="sector"){
-//      ds=question.answers.map(a=>a.sector)
-//      {ds.map((sector, index) => (
-         
-//          <PieSeg key={index} labels={labels} data={sector} question={question}  a={a} />
-//      ))}
-//  }
-//  else
-//  if(a==="age")
-//      {
-//          ds=question.answers.map(a=>a.age)
-//          {ds.map((sector, index) => (
-             
-//              <PieSeg key={index} labels={labels} data={sector} question={question} a={a} />
-//          ))}  
-//      }
-//      else{
-//          <PieSeg labels={labels} data={data} question={question} a={a} />
- 
-//      }
-//  }
- 
- 
-//     return (
-//     <>
-//         <Card header={<Divider layout='horizontal'/>} />
-//        </>
-
-//     )
-// }
-// export default BigSeg
 import { Card } from "primereact/card";
 import BarSeg from "./BarSeg";
 import LineSeg from "./LineSeg";
@@ -134,7 +24,7 @@ const BigSeg = (props) => {
             }
 let i=0;
             return (
-                <Card header={<Divider layout='horizontal'/>}>
+                <Card header={<Divider layout='horizontal' />} style={{textAlign:'center', alignItems:'center', width:'90%'}}>
                   
                     {ds.map((sector, index) => {
                         return line === "line" ? (

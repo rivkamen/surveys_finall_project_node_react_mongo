@@ -134,13 +134,14 @@ return 'selectWich'
                 optionLabel="cname" optionGroupLabel="name" optionGroupChildren={['states', 'cities']} 
                 className="w-full md:w-14rem" breakpoint="767px" placeholder={withII} itemTemplate={countryOptionTemplate} style={{ minWidth: '14rem' }} />
         </div>
-        <div className="card">
-        {bar&&<BigSeg labels={labels} data={data} question={question} a={selectWich[chooseIndex].choose.code} line={"bar"}/>}
-        {pie&&<BigSeg labels={labels} data={data} question={question} a={selectWich[chooseIndex].choose.code} line={"pie"}/>}
-        {line&&<BigSeg labels={labels} data={data} question={question} a={selectWich[chooseIndex].choose.code} line={"line"}/>}
-        {bigBar &&<BigBarSeg labels={labels} data={data} question={question} a={selectWich[chooseIndex].choose.code}/>}
-       <br/><br/> <Editor value={text[indexForText].text} onTextChange={(e) => {text[indexForText].text=e.htmlValue; setText(text);}} style={{ height: '120px' }} />
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width:'100%' }}>
+        {bar&&<BigSeg labels={labels} data={data} question={question} a={selectWich[chooseIndex].choose?.code} line={"bar"}/>}
+        {pie&&<BigSeg labels={labels} data={data} question={question} a={selectWich[chooseIndex].choose?.code} line={"pie"}/>}
+        {line&&<BigSeg labels={labels} data={data} question={question} a={selectWich[chooseIndex].choose?.code} line={"line"}/>}
+        {bigBar &&<BigBarSeg labels={labels} data={data} question={question} a={selectWich[chooseIndex].choose?.code}/>}
+       
         </div>
+        <br/><br/> <br/><br/> <br/><br/> <Editor value={text[indexForText].text} onTextChange={(e) => {text[indexForText].text=e.htmlValue; setText(text);}} style={{ height: '120px' }} />
         <br/><br/><br/><br/>
         </Card>
         <br/></>

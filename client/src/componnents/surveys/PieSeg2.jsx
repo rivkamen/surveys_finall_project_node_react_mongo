@@ -92,8 +92,10 @@ useEffect(() => {
 
     return (
        <>
-              {<h2 style={{textAlign:'center'}}>{question.answers[i].body}</h2>}<br/><br/>
-       <Chart className="sizeOfChart"type="pie" data={chartData} options={chartOptions} />
+       <span className='card'>
+              {<h3 style={{textAlign:'center'}}>{question.answers[i].body}</h3>}<br/><br/>
+       <Chart type="pie" data={chartData} options={chartOptions} />
+       </span>
        </>
     )
 }

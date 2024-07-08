@@ -100,14 +100,14 @@ const deleteAnswer=async(req,res)=>{
                 return res.status(400).json({message:"No answer found"})
             }
             answer.count=answer.count+1
-            user.sector=='חרדי'? answer.sector.haradi+=1:
-            user.sector=='חילוני'?answer.sector.hiloni+=1:
-            user.sector=='מסורתי'?answer.sector.masorty+=1:
-            user.sector=='דתי לאומי'?answer.sector.datal+=1:
-            answer.sector.loMeshtaieh+=1
+            user.sector=='חרדי'? answer.sector.חרדי+=1:
+            user.sector=='חילוני'?answer.sector.חילוני+=1:
+            user.sector=='מסורתי'?answer.sector.מסורתי+=1:
+            user.sector=='דתי לאומי'?answer.sector.דתל+=1:
+            answer.sector.לאמשתייך+=1
             
-            user.gender=='זכר'?answer.gender.male+=1:
-            answer.gender.female+=1
+            user.gender=='זכר'?answer.gender.זכר+=1:
+            answer.gender.נקבה+=1
         
             const age=(Date.now()-user.birthDate)/1000/60/60/24/365
             age<=10?answer.age.tens+=1:

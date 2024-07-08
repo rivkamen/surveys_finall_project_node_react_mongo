@@ -94,9 +94,12 @@ const dataKeys = Object.keys(data);
     }, [data, labels, question.body, colorsGroup, borderColors, borderWidthh]);  
 
     return (
-        <div className="card">
-       <Chart type="line" data={chartData} options={chartOptions} />
-        </div>
+        <>
+    <div className="card">
+    <Chart type="line" data={chartData} options={chartOptions} />
+    </div>
+      
+      </>
     )
 }
 export default LineSeg2

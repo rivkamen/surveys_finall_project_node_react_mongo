@@ -155,7 +155,7 @@ const data2 = {
 
         setChartData(data2);
         setChartOptions(options);
-    }, []);
+    }, [a]);
 
     return (
         <div className="card">
