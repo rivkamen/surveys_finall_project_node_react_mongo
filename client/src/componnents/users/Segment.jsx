@@ -13,7 +13,7 @@ const Segment=(props)=>{
         <>
         
        
-       
+       <h2 style={{textAlign:'center'}}>{survey.title}</h2>
 
         {survey?.questions.map(q=><SegQuestion refetch={refetch} question={q} survey={survey}/>)}
      

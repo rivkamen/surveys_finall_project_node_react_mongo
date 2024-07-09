@@ -33,6 +33,7 @@ const Surveys = (props) => {
     useEffect(() => {
         if (selectedCategories.some(category => category.key === 'all')) {
             setFilteredSurveys(surveys);
+            // filterSurveys(surveys)
         } else {
             let selectedKeys = selectedCategories.map(c => c.key);
             filtered = surveys.filter(s => selectedKeys.includes(s.status));
@@ -40,22 +41,17 @@ const Surveys = (props) => {
             filterSurveys(filtered,searchText);
 
         }
+       
     }, [selectedCategories, surveys,searchText]);
     const onSearchChange = (e) => {
         setSearchText(e.target.value);
       };
-//       const filterSurveys = (surveys, searchText) => {
-//         console.log("filter");
-//         console.log(surveys);
-//         filtered= surveys.filter(survey => survey.title && survey.title.toLowerCase().includes(searchText.toLowerCase()));
-//         console.log(searchText);
-//         console.log(filtered);
-// setFilteredSurveys(filtered);
-//           };
+
 const filterSurveys = (surveys, searchText) => {
     console.log("filter");
     let filteredSurveys = [];
     if (selectedCategories.some(category => category.key === 'all')) {
+        console.log("here");
         filteredSurveys = surveys.filter(survey => survey.title.toLowerCase().includes(searchText.toLowerCase()));
     } else {
         let selectedKeys = selectedCategories.map(category => category.key);
@@ -64,6 +60,40 @@ const filterSurveys = (surveys, searchText) => {
     
     setFilteredSurveys(filteredSurveys);
 };
+
+const sortSurveysByUpdateDate = () => {
+    const sortedSurveys = [...filteredSurveys].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+    setFilteredSurveys(sortedSurveys);
+};
+
+const toggleSortDirection = () => {
+    const sortedSurveys = [...filteredSurveys].reverse();
+    setFilteredSurveys(sortedSurveys);
+};
+
+
+const [isSortingAscending, setIsSortingAscending] = useState(true);
+const [sortText, setSortText] = useState("מיון לפי תאריך בסדר עולה");
+
+
+
+
+const [iconn,setIconn]=useState("pi pi-sort-amount-up");
+const [isAscending, setIsAscending] = useState(true);
+
+const handleSortButtonClick = () => {
+    setIsAscending(!isAscending);
+    setSortText(isAscending ? "מיון לפי תאריך בסדר יורד" : "מיון לפי תאריך בסדר עולה");
+    setIconn(isAscending ? "pi pi-sort-amount-down" : "pi pi-sort-amount-up");
+    if (isSortingAscending) {
+                toggleSortDirection();}
+                else{
+                            sortSurveysByUpdateDate();
+
+                }
+};
+
+
     const onCategoryChange = (e) => {
         let _selectedCategories = [...selectedCategories];
     
@@ -138,7 +168,17 @@ const filterSurveys = (surveys, searchText) => {
                     </div>
 
 <InputText placeholder="חיפוש סקר..." value={searchText} onChange={onSearchChange} dir='rtl'/>
+<br/>
+<Button
+    icon={iconn}
+    style={{ color: '#10bbbb', backgroundColor: '#e5e7eb', marginBottom: '20px' }}
+    label={sortText}
+    onClick={handleSortButtonClick}
+    rounded
+/>
+
 <br/><br/><br/><br/>
+
                     <Button
                         icon="pi pi-plus"
                         style={{ color: '#10bbbb', backgroundColor: '#e5e7eb', marginBottom: '20px', height:'15%'}}

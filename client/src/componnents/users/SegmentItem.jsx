@@ -44,7 +44,7 @@ const SegmentItem=(props)=> {
      
 
         <Dialog 
-             header={survey.title} 
+             header="תוצאות הסקר" 
             visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}>
             <p className="m-0">
                 <Segment refetch={refetch}survey={survey}/>
