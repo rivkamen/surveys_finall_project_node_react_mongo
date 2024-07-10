@@ -27,10 +27,7 @@ const SurveyItem=(props)=> {
     const [del,setDel]=useState(false)
     const status=["creating","in process","closed","completed"]
     
-    // const [activeIndex, setActiveIndex] = useState(survey.status==="creating"?0:survey.status==="in process"?1:survey.status==="closed"?2:3);
-//    console.log(status.indexOf(survey.status)); 
-//     console.log(survey);
-// console.log(survey.status);
+   
 const [activeIndex, setActiveIndex] = useState(0);
 
 useEffect(() => {
@@ -105,14 +102,8 @@ const items = [
 
     const endContent = (
         <React.Fragment>
-            <div /*className="flex align-items-center gap-3"*/>
-                        {/* <Button icon="pi pi-chart-bar" className="p-button-rounded" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status != 'closed'}
-                         onClick={()=>{setVisible1(true)}}></Button>
-                        <Button icon="pi pi-lock" className="p-button-rounded"style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status != 'in process'}
-                        onClick={changestatus}></Button> 
-                        <Button icon="pi pi-file-edit" className="p-button-rounded" style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status != 'creating'}
-                        onClick={()=>{setVisible(true)}}
-                        ></Button> */}
+            <div>
+                       
                         <Button icon="pi pi-eraser" label='מחק סקר' className="p-button-rounded"style={{color:'#10aaaa',backgroundColor:'#e5e7eb'}}disabled={survey.status === 'in process'}
                         onClick={()=>{setDel(true); }}></Button> 
                     </div>
@@ -125,11 +116,7 @@ const items = [
         <div className="card" id='surveyCard' style={{textAlign:'center' }}>
             <Card>
             <h1>{survey.title}</h1>
-             {/* <Toolbar start={startContent} center={centerContent} end={endContent} />  */}
-            {/* {startContent}
-            {centerContent}
-            {endContent} */}
-
+           
 <div className="card flex justify-content-center">
             <p style={{width:'30%'}}>
               {startContent}

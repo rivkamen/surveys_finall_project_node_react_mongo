@@ -9,6 +9,7 @@ import { ScrollTop } from 'primereact/scrolltop';
 import AddSurvey from './AddSurvey';
 import { Checkbox } from 'primereact/checkbox';
 import { InputText } from 'primereact/inputtext';
+import { Accordion, AccordionTab } from 'primereact/accordion';
 
 const Surveys = (props) => {
     const { setCurrentPage } = props;
@@ -34,6 +35,7 @@ const Surveys = (props) => {
         if (selectedCategories.some(category => category.key === 'all')) {
             setFilteredSurveys(surveys);
             // filterSurveys(surveys)
+            filterSurveys(surveys,searchText)
         } else {
             let selectedKeys = selectedCategories.map(c => c.key);
             filtered = surveys.filter(s => selectedKeys.includes(s.status));
@@ -141,10 +143,18 @@ const handleSortButtonClick = () => {
                     padding: '20px',
                     backgroundColor: '#f9f9f9',
                     boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-                    overflowY: 'auto'
+                    overflowY: 'auto',
+                    width:'300px'
+
                 }}>
                    
-                    <div className="card flex justify-content-center" style={{ width: '100%' }}>
+           <br/> <br/>                 
+
+<InputText placeholder="חיפוש סקר..." value={searchText} onChange={onSearchChange} dir='rtl'/>
+<br/>
+<div className="card flex justify-content-center" style={{ width: '100%' }}>
+                    <Accordion id="surveysAcord"className="w-full md:w-16rem">
+                    <AccordionTab header={<div><i className='pi pi-bookmark-fill'></i>&nbsp;&nbsp;סנן לפי קטגוריה</div>}>
                         <div className="flex flex-column gap-3" >
                             {categories.map((category) => {
                                 return (
@@ -164,11 +174,8 @@ const handleSortButtonClick = () => {
                                     </div>
                                 );
                             })}
-                        </div>
+                        </div></AccordionTab></Accordion>
                     </div>
-
-<InputText placeholder="חיפוש סקר..." value={searchText} onChange={onSearchChange} dir='rtl'/>
-<br/>
 <Button
     icon={iconn}
     style={{ color: '#10bbbb', backgroundColor: '#e5e7eb', marginBottom: '20px' }}
@@ -181,7 +188,7 @@ const handleSortButtonClick = () => {
 
                     <Button
                         icon="pi pi-plus"
-                        style={{ color: '#10bbbb', backgroundColor: '#e5e7eb', marginBottom: '20px', height:'15%'}}
+                        style={{ color: '#10bbbb', backgroundColor: '#e5e7eb', marginBottom: '20px', height:'10%'}}
                         label="&nbsp;סקר חדש&nbsp;"
                         onClick={() => { setVisibleNew(true); }}
                         rounded

@@ -364,5 +364,12 @@ margin-right: auto;
   align-items: center;
   size: 50px;
 }
+.pi.pi-bookmark-fill{
+  color:#14B8A6;
+
+}
+#surveysAcord{
+  border-color: #14B8A6;
+}
 
   
