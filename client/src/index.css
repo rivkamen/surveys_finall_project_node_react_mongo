@@ -327,6 +327,10 @@ margin-right: auto;
   .chartTogether{
     width:90%
   }
+  .flex.flex-center.card.p-fluid.p-inputtext-lg
+{
+  width:100%
+}
   
 }
 /* Medium Size Screens */
@@ -343,6 +347,10 @@ margin-right: auto;
   .chartTogether{
     width:80%
   }
+  .flex.flex-center.card.p-fluid.p-inputtext-lg
+{
+  width:100%
+}
 }
 
 /* Large Size Screens */
@@ -371,5 +379,8 @@ margin-right: auto;
 #surveysAcord{
   border-color: #14B8A6;
 }
+/* .logoImg{
+  margin-top: 40%;
+} */
 
   

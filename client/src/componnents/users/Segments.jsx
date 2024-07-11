@@ -39,25 +39,25 @@ const Segments = () => {
     
     
     const [isSortingAscending, setIsSortingAscending] = useState(true);
-    const [sortText, setSortText] = useState("מיון לפי תאריך בסדר עולה");
-    
-    
-    
-    
-    const [iconn,setIconn]=useState("pi pi-sort-amount-up");
-    const [isAscending, setIsAscending] = useState(true);
-    
-    const handleSortButtonClick = () => {
-        setIsAscending(!isAscending);
-        setSortText(isAscending ? "מיון לפי תאריך בסדר יורד" : "מיון לפי תאריך בסדר עולה");
-        setIconn(isAscending ? "pi pi-sort-amount-down" : "pi pi-sort-amount-up");
-        if (isSortingAscending) {
-                    toggleSortDirection();}
-                    else{
-                                sortSurveysByUpdateDate();
-    
-                    }
-    };
+const [sortText, setSortText] = useState("בסדר עולה");
+
+
+
+
+const [iconn,setIconn]=useState("pi pi-sort-amount-up");
+const [isAscending, setIsAscending] = useState(true);
+
+const handleSortButtonClick = () => {
+    setIsAscending(!isAscending);
+    setSortText(isAscending ? "בסדר יורד" : "בסדר עולה");
+    setIconn(isAscending ? "pi pi-sort-amount-down" : "pi pi-sort-amount-up");
+    if (isSortingAscending) {
+                toggleSortDirection();}
+                else{
+                            sortSurveysByUpdateDate();
+
+                }
+};
     
     
     return (
@@ -83,7 +83,7 @@ const Segments = () => {
                     width:'300px'
                 }}>
                     <br/>
-                    <InputText dir='rtl' placeholder="חפש סקר לפי שם..." value={searchText} onChange={handleSearchChange} /><br/><br/>
+                    <InputText dir='rtl' placeholder="חפש סקר לפי שם..." value={searchText} onChange={handleSearchChange} /><br/>
                     {/* Other content */}
                     <p dir="rtl"style={{marginRight:5}}>מיון לפי תאריך:</p>
                     <Button
@@ -95,8 +95,8 @@ const Segments = () => {
 />
 
 <br/>
-                <div style={{color:"#14B8A6", fontSize:'20pt'}}> שמחים שבחרת לענות <br/>"הרוב קובע"<br/>צעד קטן לאדם<br/>התקדמות גדולה לאנושות <br/>מקוים שנהנית<br/>...נפגש בהמשך</div><br/>
-                               <img style={{width:'250px'}}src="image/הרוב-קובעע.gif" alt="My Image" />
+                <div style={{color:"#14B8A6", fontSize:'20pt'}}> שמחים שבחרת לענות <br/>"הרוב קובע"<br/>צעד קטן לאדם<br/>התקדמות גדולה לאנושות <br/>מקוים שנהנית</div><br/>
+                               <img  className="logoImg" style={{width:'250px'}}src="image/הרוב-קובעע.gif" alt="My Image" />
             </div>
             </div>
                 

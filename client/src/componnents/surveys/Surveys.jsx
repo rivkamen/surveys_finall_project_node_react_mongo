@@ -75,7 +75,7 @@ const toggleSortDirection = () => {
 
 
 const [isSortingAscending, setIsSortingAscending] = useState(true);
-const [sortText, setSortText] = useState("מיון לפי תאריך בסדר עולה");
+const [sortText, setSortText] = useState("בסדר עולה");
 
 
 
@@ -85,7 +85,7 @@ const [isAscending, setIsAscending] = useState(true);
 
 const handleSortButtonClick = () => {
     setIsAscending(!isAscending);
-    setSortText(isAscending ? "מיון לפי תאריך בסדר יורד" : "מיון לפי תאריך בסדר עולה");
+    setSortText(isAscending ? "בסדר יורד" : "בסדר עולה");
     setIconn(isAscending ? "pi pi-sort-amount-down" : "pi pi-sort-amount-up");
     if (isSortingAscending) {
                 toggleSortDirection();}
@@ -176,15 +176,16 @@ const handleSortButtonClick = () => {
                             })}
                         </div></AccordionTab></Accordion>
                     </div>
-<Button
+                    <p dir="rtl"style={{marginRight:5}}>מיון לפי תאריך:</p>
+                    <Button
     icon={iconn}
     style={{ color: '#10bbbb', backgroundColor: '#e5e7eb', marginBottom: '20px' }}
     label={sortText}
     onClick={handleSortButtonClick}
     rounded
-/>
+/> 
 
-<br/><br/><br/><br/>
+<br/><br/>
 
                     <Button
                         icon="pi pi-plus"
@@ -193,6 +194,8 @@ const handleSortButtonClick = () => {
                         onClick={() => { setVisibleNew(true); }}
                         rounded
                     />
+                                    <img className="logoImg"style={{width:'250px'}} src="image/הרוב-קובעע.gif" alt="My Image" />
+
                 </div>
             </div>
         </>

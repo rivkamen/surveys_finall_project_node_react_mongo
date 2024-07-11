@@ -5,6 +5,7 @@ import UserSurveyItem from './UserSurveyItem';
 import { InputText } from 'primereact/inputtext';
 import { useGetUserQuery } from './usersApiSlice';
 import { ScrollTop } from 'primereact/scrolltop';
+import { Button } from 'primereact/button';
 
 const UserSurveys = (props) => {
     const status = "in process";
@@ -65,6 +66,38 @@ const handleSearchChange = (e) => {
     const { value } = e.target;
     setSearchText(value);
 };
+const sortSurveysByUpdateDate = () => {
+    const sortedSurveys = [...filteredSurveys].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+    setFilteredSurveys(sortedSurveys);
+};
+
+const toggleSortDirection = () => {
+    const sortedSurveys = [...filteredSurveys].reverse();
+    setFilteredSurveys(sortedSurveys);
+};
+
+
+const [isSortingAscending, setIsSortingAscending] = useState(true);
+const [sortText, setSortText] = useState("בסדר עולה");
+
+
+
+
+const [iconn,setIconn]=useState("pi pi-sort-amount-up");
+const [isAscending, setIsAscending] = useState(true);
+
+const handleSortButtonClick = () => {
+    setIsAscending(!isAscending);
+    setSortText(isAscending ? "בסדר יורד" : "בסדר עולה");
+    setIconn(isAscending ? "pi pi-sort-amount-down" : "pi pi-sort-amount-up");
+    if (isSortingAscending) {
+                toggleSortDirection();}
+                else{
+                            sortSurveysByUpdateDate();
+
+                }
+};
+
 
 return (
     <>
@@ -89,11 +122,21 @@ return (
                 backgroundColor: '#f9f9f9',
                 overflowY: 'auto'
             }}>
-                <br/><br/><br/>
-                <InputText dir='rtl' placeholder="חפש סקר לפי שם..." value={searchText} onChange={handleSearchChange} /><br/><br/><br/>
+                <br/>
+               
+                <InputText dir='rtl' placeholder="חפש סקר לפי שם..." value={searchText} onChange={handleSearchChange} /><br/>
                 {/* Other content */}
-                <div style={{color:"#14B8A6", fontSize:'20pt'}}> שמחים שבחרת לענות <br/>"הרוב קובע"<br/>!!!!בהצלחה<br/>מחכים להציג לך <br/>!תוצאות אמת<br/>!שווה לעקוב</div><br/><br/><br/><br/><br/>
-                               <img style={{width:'250px'}}src="image/הרוב-קובעע.gif" alt="My Image" />
+                <p dir="rtl"style={{marginRight:5}}>מיון לפי תאריך:</p>
+                    <Button
+    icon={iconn}
+    style={{ color: '#10bbbb', backgroundColor: '#e5e7eb', marginBottom: '20px' }}
+    label={sortText}
+    onClick={handleSortButtonClick}
+    rounded
+/> 
+                <div style={{color:"#14B8A6", fontSize:'20pt'}}> שמחים שבחרת לענות <br/>"הרוב קובע"<br/>!!!!בהצלחה<br/>מחכים להציג לך <br/>!תוצאות אמת<br/>!שווה לעקוב</div><br/>
+                               <img  className="logoImg" style={{width:'250px'}}src="image/הרוב-קובעע.gif" alt="My Image" />
+
             </div>
         </div>
     </>

@@ -114,7 +114,7 @@ const SegmentSurveys = () => {
     
     
     const [isSortingAscending, setIsSortingAscending] = useState(true);
-    const [sortText, setSortText] = useState("מיון לפי תאריך בסדר עולה");
+    const [sortText, setSortText] = useState("בסדר עולה");
     
     
     
@@ -124,7 +124,7 @@ const SegmentSurveys = () => {
     
     const handleSortButtonClick = () => {
         setIsAscending(!isAscending);
-        setSortText(isAscending ? "מיון לפי תאריך בסדר יורד" : "מיון לפי תאריך בסדר עולה");
+        setSortText(isAscending ? "בסדר יורד" : "בסדר עולה");
         setIconn(isAscending ? "pi pi-sort-amount-down" : "pi pi-sort-amount-up");
         if (isSortingAscending) {
                     toggleSortDirection();}
@@ -169,7 +169,7 @@ const SegmentSurveys = () => {
 /> 
 <br/>
 <div style={{color:"#14B8A6", fontSize:'20pt'}}>בהצלחה<br/>זכור כי פילוח טוב<br/>הוא המפתח<br/> להתקדמות המחקר<br/></div><br/>
-                               <img style={{width:'250px'}}src="image/הרוב-קובעע.gif" alt="My Image" />
+                               <img  className="logoImg" style={{width:'250px'}}src="image/הרוב-קובעע.gif" alt="My Image" />
           
             </div>
                 </div>
