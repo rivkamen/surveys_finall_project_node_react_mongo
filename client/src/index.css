@@ -250,9 +250,7 @@ video{
   #seg.card{
 width: 500px; 
  }
- #segg.card{
-  width: 500px; 
-   }
+ 
    .p-button {
     margin: 0;
     display: inline-flex;
@@ -331,7 +329,9 @@ margin-right: auto;
 {
   width:100%
 }
-  
+#segg.card{
+  width: 100%;
+   } 
 }
 /* Medium Size Screens */
 @media screen and (min-width: 600px) {
@@ -351,6 +351,17 @@ margin-right: auto;
 {
   width:100%
 }
+#segg.card{
+  width: 80%;
+   }
+   .right-column {
+    display: none;
+    background-color: #14B8A6;
+  }
+  
+  .right-column.hidden {
+    display: block;
+  }
 }
 
 /* Large Size Screens */
@@ -379,6 +390,9 @@ margin-right: auto;
 #surveysAcord{
   border-color: #14B8A6;
 }
+#segg.card{
+  width: 500px;
+   }
 /* .logoImg{
   margin-top: 40%;
 } */

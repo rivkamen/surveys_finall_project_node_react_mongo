@@ -16,8 +16,8 @@ const surveySchema=new mongoose.Schema({
     },
     
         age:{
-            type:[Number],
-            default:[0,120]
+            type:[String],
+            default:["לא מוגבל"]
         },
            
         gender:{
@@ -27,9 +27,9 @@ const surveySchema=new mongoose.Schema({
    
         },
         sector:{
-            type:String,
+            type:[String],
             enum:["חרדי","חילוני","דתי לאומי","מסורתי","לא משתייך","לא מוגבל"],
-            default:"לא מוגבל"
+            default:["לא מוגבל"]
             
         },
 

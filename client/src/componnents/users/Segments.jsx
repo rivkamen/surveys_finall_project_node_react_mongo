@@ -68,7 +68,7 @@ const handleSortButtonClick = () => {
 
             <ScrollTop />
 </div>
-            <div style={{
+            <div className='right-column' style={{
                     flex: 1,
                     display: 'flex',
                     flexDirection: 'column',

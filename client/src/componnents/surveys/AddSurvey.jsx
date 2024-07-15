@@ -19,7 +19,7 @@ import { AutoComplete } from 'primereact/autocomplete';
 import SendSurvey from './SendSurvey';
 import { PanelMenu } from 'primereact/panelmenu';
 import { Accordion, AccordionTab } from 'primereact/accordion';
-
+import { MultiSelect } from 'primereact/multiselect';
 const AddSurvey=(props)=>{
     const {refetch,setVisibleNew}=props
     let [questions,setQuestions]=useState([]); 
@@ -40,10 +40,12 @@ const AddSurvey=(props)=>{
     const add = async (e) => { 
     //    let quest=[{body:"try",answers:[{body:"catch"}]},{body:"tryagain",answers:[{body:"catchagain"}]}]
         // console.log("add");    //e.preventDefault();  
-       
-
-       
-       await addSurveyFunc({title:text,gender:selectedgender,sector:selectedSector,age:ages,questions:questions}).then(()=>refetch())
+       console.log("huuuuuu");
+let selectSector;
+    selectSector= await selectedSectors.map(select=>select.name)
+let selectAge;
+    selectAge= await selectedAges.map(age=>age.name)
+       await addSurveyFunc({title:text,gender:selectedgender,sector:selectSector,age:selectAge,questions:questions}).then(()=>refetch())
        //await updateSurveyFunc({_id:survey?.data?._id,title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,age:ages}).then(()=>refetch())
     }
 
@@ -77,28 +79,55 @@ const AddSurvey=(props)=>{
         { label: 'זכר',command:()=>{setSelectedgender('זכר')} },
         { label: 'נקבה',command:()=>{setSelectedgender('נקבה')}}
     ];
-    const sector = [
-        { label: 'לא מוגבל',command:()=>{setSelectedSector('לא מוגבל')} },
-        { label: 'לא משתייך',command:()=>{setSelectedSector('לא משתייך')} },
-        { label: 'מסורתי',command:()=>{setSelectedSector('מסורתי')}},
-        { label: 'חרדי',command:()=>{setSelectedSector('חרדי')}},
-        { label: 'חילוני',command:()=>{setSelectedSector('חילוני')}},
-        { label: 'דתי לאומי',command:()=>{setSelectedSector('דתי לאומי')}}
+    // const sector = [
+    //     { label: 'לא מוגבל',command:()=>{setSelectedSector('לא מוגבל')} },
+    //     { label: 'לא משתייך',command:()=>{setSelectedSector('לא משתייך')} },
+    //     { label: 'מסורתי',command:()=>{setSelectedSector('מסורתי')}},
+    //     { label: 'חרדי',command:()=>{setSelectedSector('חרדי')}},
+    //     { label: 'חילוני',command:()=>{setSelectedSector('חילוני')}},
+    //     { label: 'דתי לאומי',command:()=>{setSelectedSector('דתי לאומי')}}
        
        
-    ];
-    const [ages, setAges] = useState([0,120]);
+    // ];
+    const [selectedSectors, setSelectedSectors] = useState(null);
+    
+        const sector = [
+            { name: 'לא מוגבל'},
+            { name: 'לא משתייך' },
+            { name: 'מסורתי'},
+            { name: 'חרדי'},
+            { name: 'חילוני'},
+            { name: 'דתי לאומי'}
+        ];
+        const [selectedAges, setSelectedAges] = useState(null);
+    
+        const ages = [
+            { name: 'לא מוגבל'},
+            { name: "0 - 10"},
+            { name: "10 - 20" },
+            { name: "20 - 30"},
+            { name: "30 - 40"},
+            { name: "40 - 50"},
+            { name: "50 - 60"},
+            { name: "60 - 70" },
+            { name: "70 - 80"},
+            { name: "80 - 90"},
+            { name: "90 - 100"},
+            { name: "100 - 120"}
+        ];
+       console.log(selectedSectors);
+    // const [ages, setAges] = useState([0,120]);
     const items = [
         {
             label: selectedgender||'מגדר',
             icon: 'pi pi-user',
             items: gender,
         },
-        {
-            label: selectedSector||'מגזר',
-            icon: 'pi pi-tag',
-            items: sector
-        }
+        // {
+        //     label: selectedSector||'מגזר',
+        //     icon: 'pi pi-tag',
+        //     items: sector
+        // }
     ]
 
    
@@ -173,17 +202,19 @@ return isFormFieldInvalid(name) ?  <small className="p-error">{formik.errors[nam
 
      <div style={{ position: 'sticky', top: 200, height: '0vh', width: '300px',fontFamily:'Yehuda CLM'}}>
         <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?למי מיועד הסקר</h2>
-        
-         <PanelMenu model={items} className="w-full md:w-20rem"></PanelMenu>
-         <Accordion className="w-full md:w-20rem">
-    <AccordionTab header={<div><i className='pi pi-sort-numeric-up-alt'></i>&nbsp;&nbsp;גיל</div>}>
-            <div>
-                <InputText value={ages} onChange={(e) => setAges(e.target.value)} className="w-full" disabled/>
-                <Slider value={ages} onChange={(e) => setAges(e.value)} className="w-17.5rem" range step={10}min={0}max={120}/>
-            </div>
-    </AccordionTab>
-    </Accordion>
-    <br/><br/>
+        <div style={{alignItems:'center'}}>
+        &nbsp;&nbsp; <PanelMenu model={items} className="w-full md:w-20rem"></PanelMenu>
+         <div className="card flex justify-content-center">
+            <MultiSelect value={selectedSectors} onChange={(e) => setSelectedSectors(e.value)} options={sector} optionLabel="name" display="chip" 
+                placeholder={<div style={{color:"black",fontWeight:"bold",margin:"5px"}}><i className='pi pi-sort-numeric-up-alt'></i>&nbsp;&nbsp;מגזר</div>} maxSelectedLabels={5} className="w-full md:w-20rem" />
+                
+        </div>
+        <div className="card flex justify-content-center">
+
+        <MultiSelect id="multiSel"value={selectedAges} onChange={(e) => setSelectedAges(e.value)} options={ages} optionLabel="name" display="chip" 
+                placeholder={<div style={{color:"black",fontWeight:"bold",margin:"5px"}}><i className='pi pi-sort-numeric-up-alt'></i>&nbsp;&nbsp;גיל</div>} maxSelectedLabels={5} className="w-full md:w-20rem" />  
+                </div>
+                </div>
     
     <Button label="הוסף שאלה" onClick={async()=>{addQuestion()}} icon="pi pi-plus" rounded style={{width:'50%',color:'#10bbbb', backgroundColor:'#e5e7eb',marginLeft:'19%'}}/> {/* This is the menu */}
     <br/><br/>
@@ -201,3 +232,25 @@ return isFormFieldInvalid(name) ?  <small className="p-error">{formik.errors[nam
     )
 }
 export default AddSurvey
+
+
+/*import React, { useState } from "react";
+import { MultiSelect } from 'primereact/multiselect';
+
+export default function ChipsDemo() {
+    const [selectedSectors, setSelectedSectors] = useState(null);
+    const cities = [
+        { name: 'New York', code: 'NY' },
+        { name: 'Rome', code: 'RM' },
+        { name: 'London', code: 'LDN' },
+        { name: 'Istanbul', code: 'IST' },
+        { name: 'Paris', code: 'PRS' }
+    ];
+
+    return (
+        <div className="card flex justify-content-center">
+            <MultiSelect value={selectedSectors} onChange={(e) => setSelectedSectors(e.value)} options={cities} optionLabel="name" display="chip" 
+                placeholder="Select Cities" maxSelectedLabels={3} className="w-full md:w-20rem" />
+        </div>
+    );
+}*/
