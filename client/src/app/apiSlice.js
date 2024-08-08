@@ -3,7 +3,7 @@ import {createApi, fetchBaseQuery} from
 const apiSlice = createApi({
 reducerPath:"api",
 baseQuery: fetchBaseQuery({
-baseUrl: "http://localhost:6125",
+baseUrl: "https://surveys-finall-project-node-react-mongo.onrender.com",
 credentials: 'include',
 prepareHeaders: (headers, { getState }) => {
 const token = getState().auth.token
