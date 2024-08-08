@@ -1,5 +1,7 @@
 const allowedOrigins = [
-    'https://surway.onrender.com'
+    'https://surway.onrender.com',
+    'http://localhost:3000',
+    'http://localhost:5500'
     ]
     const corsOptions = {
     origin: (origin, callback) => {
