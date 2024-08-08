@@ -3,6 +3,7 @@ const mongoose=require("mongoose")
 const conectDB=require("./config/dbConn")
 const express=require("express")
 const cors=require("cors")
+console.log("hello everyone")
 const corsOptions=require("./config/corsOptions")
 const PORT=process.env.PORT||2023
 const app=express()
