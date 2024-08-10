@@ -115,7 +115,7 @@ const items = [
        
         <div className="card" id='surveyCard' style={{textAlign:'center' }}>
             <Card>
-            <h1>{survey.title}</h1>
+            <h1 dir='rtl'>{survey.title}</h1>
            
 <div className="card flex justify-content-center">
             <p style={{width:'30%'}}>

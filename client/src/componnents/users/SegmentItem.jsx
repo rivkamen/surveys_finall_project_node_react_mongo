@@ -29,7 +29,7 @@ const SegmentItem=(props)=> {
        
         <div className="card" id='segg'>
             <Card>
-            <h1>{survey.title}</h1>
+            <h1 dir='rtl'>{survey.title}</h1>
            
 
 <div className="card flex justify-content-center">

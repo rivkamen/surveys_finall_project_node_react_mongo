@@ -23,7 +23,7 @@ const SurveySegItem=(props)=>{
         <div className="card" id="seg">
             
             <Card /*style={{BlockSize:'250px',width:'50%'}}*/>
-            <h1>{survey.title}</h1>
+            <h1 dir='rtl'>{survey.title}</h1>
 <div className="card flex justify-content-center">
           
             <p style={{width:'30%',marginRight:0}}>
@@ -31,7 +31,7 @@ const SurveySegItem=(props)=>{
             </p>
         </div></Card>
         </div>
-        <Dialog 
+        <Dialog  dir='rtl'
             header={survey.title} 
             visible={visible} style={{ width: '50vw', height:'100vw' }} onHide={() => setVisible(false)}>
             <p className="m-0">

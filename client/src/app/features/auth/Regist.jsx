@@ -67,7 +67,6 @@ const Regist = (props) => {
     const [textu, setTextu] = useState('')
     const [textp, setTextp] = useState('')
 
-    /**//*/*//*/*////////////////// ////////////////////////////////////////////////////////////*/ */
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -85,15 +84,11 @@ const Regist = (props) => {
 
             }
             if (!data.username) {
-                console.log("username");
 
-                console.log(data);
                 errors.username = 'שדה חובה';
             } if (!data.password) {
-                console.log("password");
                 errors.password = 'שדה חובה';
             }
-            console.log(data);
 
 
             return errors;
@@ -109,7 +104,6 @@ const Regist = (props) => {
     const getFormErrorMessage = (name) => {
         return isFormFieldInvalid(name) ? <small className="p-error">{formik.errors[name]}</small> : <small className="p-error">&nbsp;</small>;
     };
-    /****************************************************************************************** */
     const footerContent = (
         <div>
             <Button label="בטל" icon="pi pi-times" onClick={() => setVisible(false)} className="p-button-text" />
@@ -125,7 +119,7 @@ const Regist = (props) => {
                 <div>
                     <div className="inline-flex flex-column gap-2">
                         <label htmlFor="name" className="font-semibold">
-                            שם פרטי
+                            שם 
                         </label>
 
                         <AutoComplete id="autoCompl1" style={{ width: '400px' }} label="Name" inputRef={name} value={formik.values.name} /*placeholder={title.current}*/
