@@ -23,8 +23,7 @@ const UserSurvey = (props) => {
 
    
     const count = () => {
-        countFunc({ _id: survey._id }).then(() => refetch())
-        console.log("count");
+        countFunc({ _id: survey._id })
     }
     const addSurveyForUser = () => {
         addUserSurveyFunc({_id: user._id, survey: survey })
