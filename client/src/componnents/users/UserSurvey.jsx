@@ -31,14 +31,16 @@ const UserSurvey = (props) => {
     }
 
     const [ChangeAnswerDataFunc, { isError, error, isSuccess, data }] = useChangeAnswerDataMutation()
-    const chooseSegment = (e) => {
+    const chooseSegment = async (e) => {
         console.log("chooseSegment");
         if (select) {
-            select.map(q => ChangeAnswerDataFunc({ _id: survey._id, questionId: q._id, answerId: select[select.indexOf(select.find(i => i._id == q._id))].select }).then(() => refetch()))
+           await select.map(q => ChangeAnswerDataFunc({ _id: survey._id, questionId: q._id, answerId: select[select.indexOf(select.find(i => i._id == q._id))].select }).then(() => refetch()))
+            window.location.reload(true);
         }
         else {
             console.log('no select');
         }
+        
     };
 
     return (
