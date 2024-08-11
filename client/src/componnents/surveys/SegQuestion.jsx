@@ -16,14 +16,7 @@ const SegQuestion=(props)=>{
     const index=select.indexOf(select.find(q=>q._id==question._id))
     const chooseIndex=selectWich.indexOf(selectWich.find(qq=>qq._id==question._id))
     const indexForText=text.indexOf(text.find(q=>q._id==question._id))
-    console.log("select,");
-    console.log(select);
-    console.log("selectWich,");
-    console.log(selectWich);
-    console.log(index);
-    console.log(chooseIndex);
-    console.log("question");
-    console.log(question._id);
+
     const [bar, setBar] = useState(false);
     const [pie, setPie] = useState(false);
     const [line, setLine] = useState(false);
@@ -31,8 +24,7 @@ const SegQuestion=(props)=>{
 
    const labels=question.answers.map(a=>{return a.body})//שמות השאלות
    const data=question.answers.map(a=>a.count)//כמות העונים בכל פעם
-   console.log("data");
-   console.log(data);
+  
  const Bar=()=>{
         setBar(true)
         setLine(false)
@@ -64,9 +56,7 @@ const SegQuestion=(props)=>{
     }
     const [selectedCity, setSelectedCity] = useState(select[index].select?select[index].select:select?'תרשים עוגה':console.log('selectedCity'));
     const [selectedWichData, setSelectedWichData] = useState(selectWich[chooseIndex]?.choose?selectWich[chooseIndex]?.choose:selectWich?'כללי':'selectedFrame');
-    console.log(selectWich);
-    console.log(select);
-console.log(chooseIndex);
+
     const countries = [
             {cname: 'תרשים עוגה', code: 'US-AU'},
             {cname: 'גרף', code: 'US-DA'},

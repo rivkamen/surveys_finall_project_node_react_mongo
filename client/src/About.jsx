@@ -132,9 +132,7 @@ const About = () => {
             });
         }
     }, [users, usersIsSuccess, d]);
-    console.log(countAge);
-    console.log(countGender);
-    console.log(countSector);
+
 
 
     return (

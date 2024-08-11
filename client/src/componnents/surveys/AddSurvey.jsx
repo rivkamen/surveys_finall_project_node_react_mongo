@@ -40,7 +40,6 @@ const AddSurvey=(props)=>{
     const add = async (e) => { 
     //    let quest=[{body:"try",answers:[{body:"catch"}]},{body:"tryagain",answers:[{body:"catchagain"}]}]
         // console.log("add");    //e.preventDefault();  
-       console.log("huuuuuu");
 let selectSector;
     selectSector= await selectedSectors.map(select=>select.name)
 let selectAge;
@@ -115,7 +114,6 @@ let selectAge;
             { name: "90 - 100"},
             { name: "100 - 120"}
         ];
-       console.log(selectedSectors);
     // const [ages, setAges] = useState([0,120]);
     const items = [
         {
@@ -169,7 +167,6 @@ let selectAge;
             return errors;
         },
         onSubmit: async() => {
-           console.log('onSubmit');
             await add();
             await setSend(true);
             refetch();

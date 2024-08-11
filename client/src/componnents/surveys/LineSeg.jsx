@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
 const LineSeg=(props)=> {
    var {labels,data,question}=props
-   console.log("hhhhhhhhhhhhhh");
-   console.log(data);
+  
    const arr = Object.entries(data).reduce((acc, [gender, count], index) => {
     acc[index] = count;
     return acc;
 }, []);
-console.log('genderArr');
-console.log(arr);
+
 
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});

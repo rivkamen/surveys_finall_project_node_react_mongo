@@ -38,9 +38,7 @@ const Start=()=>{
         if(loginSuccess){    
         dispatch(setToken(data))
         decodeToken =DecodeToken()
-        console.log("lllllllllllllll"); 
         users=decodeToken?.roles;
-        console.log(users);
         users==='admin'?navigate('/'):navigate('/user')
 
 
@@ -52,11 +50,9 @@ const Start=()=>{
         },[loginSuccess,userIsSuccess])
     
     const handleSubmit = async (e) => {
-        console.log(username.current.value);
        // e.preventDefault();
        await loginFunc({username:username.current.value,password:password.current.value})
        
-        console.log(data);
         };
     
     return(

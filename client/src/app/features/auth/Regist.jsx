@@ -77,8 +77,7 @@ const Regist = (props) => {
         validate: (data) => {
             let errors = {};
             if (!data.name) {
-                console.log("name");
-                console.log(data);
+             
                 errors.name = 'שדה חובה';
                 
 
@@ -126,7 +125,6 @@ const Regist = (props) => {
                             name='name'
                             className={classNames({ 'p-invalid': isFormFieldInvalid('name') })}
                             onChange={(e) => {
-                                console.log(e.value);
 
                                 setTextn(e.value)
                                 formik.setFieldValue('name', e.value);

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
 const LineSeg2=(props)=> {
    var {labels,data,question,i}=props
-   console.log("hhhhhhhhhhhhhh");
-   console.log(data);
+   
    const arr = Object.entries(data).reduce((acc, [gender, count], index) => {
     acc[index] = count;
     return acc;

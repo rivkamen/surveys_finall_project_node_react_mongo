@@ -29,12 +29,9 @@ const [text,setText]=useState(survey.title)
 let [questions,setQuestions]=useState(survey.questions.map(q=>{return{_id:q._id,body:q.body,createdAt:q.createdAt,answers:q.answers.map(a=>{return{_id:a._id,body:a.body,createdAt:a.createdAt}})}}));
 let [newQuestions,setNewQuestions]=useState([]);
 
-console.log(questions);
 const [updateFunc, {isError2, error2, isSuccess2,data2}] = useUpdateSurveyMutation()
 const edit = async (e) => {
-    // setEd(true)
-    console.log("editSurvey");
-        //e.preventDefault();
+   
         
     // await newQuestions.forEach(q=>{console.log("**************************"+q.body);addQuestionFunc({_id:survey._id,body:q.body,answers:q.answers})})
     await updateFunc({_id:survey._id,title:title.current.value,gender:selectedgender.name,sector:selectedSector.name,age:ages,questions:questions,newQuestions:newQuestions}).then(refetch());
@@ -55,7 +52,6 @@ const formik = useFormik({
         return errors;
     },
     onSubmit: async() => {
-       console.log('onSubmit');
         await edit();
         await setSend(true);
         refetch();
@@ -152,7 +148,6 @@ const[ages,setAges]=useState(survey.age);
         name='title'
                      className={classNames({ 'p-invalid': isFormFieldInvalid('title') })}
                      onChange={(e) => {
-                        console.log(title.current);
                         setText(e.value)
                          formik.setFieldValue('title', e.value);
                      }}

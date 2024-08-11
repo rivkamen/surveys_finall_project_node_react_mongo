@@ -3,9 +3,7 @@ import { Chart } from 'primereact/chart';
 import { ZIndexUtils } from 'primereact/utils';
 const BarSeg=(props)=> {
    var {labels,data,question,s,a}=props
-   console.log("gvfcdxszdxcfvgbhnj");
-   console.log("data:");
-   console.log(data);
+  
    let c;
    let ds;
 

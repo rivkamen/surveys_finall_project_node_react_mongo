@@ -3,9 +3,7 @@ import { Chart } from 'primereact/chart';
 import { ZIndexUtils } from 'primereact/utils';
 const BarSeg2=(props)=> {
    var {labels,data,question,s,a,i}=props
-   console.log("gvfcdxszdxcfvgbhnj");
-   console.log("data:");
-   console.log(data);
+  
    let c;
    
    const arr = Object.entries(data).reduce((acc, [o, count], index) => {

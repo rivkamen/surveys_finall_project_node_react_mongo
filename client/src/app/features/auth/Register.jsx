@@ -62,8 +62,6 @@ const [ingredient, setIngredient] = useState('');
 return (
 <div>
 <div className="card flex justify-content-center">
-    {console.log(visible)}
-            {/* <Button label="Login" icon="pi pi-user" onClick={() => setVisible(true)} /> */}
             <Dialog
            
                  visible={visible}
@@ -167,7 +165,7 @@ return (
                         </div>
                     );
                 })}
-            </div>{console.log(`${name.current.value} ${username.current.value} ${password.current.value} ${birthDate.current.value} ${email.current.value} ${gender.current.value} ${sector.current.value}`)}
+            </div>
         </div>
        
                         <div className="flex align-items-center gap-2">

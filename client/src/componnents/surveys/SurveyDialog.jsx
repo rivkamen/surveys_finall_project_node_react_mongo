@@ -20,14 +20,11 @@ const [addFunc, {isError, error, isSuccess,data}] = useAddSurveyMutation()
 var [visible, setVisible] = useState(true);
 
 const add = (e) => {
-    console.log("addQuestion");
-        //e.preventDefault();
     addFunc({/*_id:survey._id,*/title:title.current.value})};
 // 
 return (
 <div>
 <div className="card flex justify-content-center">
-    {console.log(visible)}
             <Dialog
            
                 visible={visible}

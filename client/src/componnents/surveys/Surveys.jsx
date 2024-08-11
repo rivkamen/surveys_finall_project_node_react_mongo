@@ -50,10 +50,8 @@ const Surveys = (props) => {
       };
 
 const filterSurveys = (surveys, searchText) => {
-    console.log("filter");
     let filteredSurveys = [];
     if (selectedCategories.some(category => category.key === 'all')) {
-        console.log("here");
         filteredSurveys = surveys.filter(survey => survey.title.toLowerCase().includes(searchText.toLowerCase()));
     } else {
         let selectedKeys = selectedCategories.map(category => category.key);

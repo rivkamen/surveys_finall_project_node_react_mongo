@@ -22,12 +22,10 @@ const [saveDisable,setSaveDisable]=useState(false)
     const chooseSegment = (e) => {
         if(select)
           {
-            console.log("1");
             select.map(q=>ChooseSegQuestionFunc({_id:survey._id,questionId:q._id,kind:q.select.cname,note:text[text.indexOf(text.find(i=>i._id==q._id))].text}))
           }
           
           if(wichDataSelect){
-            console.log('33333333');
             wichDataSelect.map(q=>ChooseSegQuestionFunc({_id:survey._id,questionId:q._id,choose:q.choose.cname}).then(()=>refetch()))
           }
     
