@@ -212,10 +212,11 @@ const UserSurvey = (props) => {
                      <div dir='rtl' style={{fontWeight:'bold',fontSize: '30px', fontFamily: 'Yehuda CLM', backgroundColor: "white", textAlign: 'center', top: '0px', position: 'sticky' }}>{survey.title}</div><br /><br />
                      {survey?.questions.map(q => <UserQuestion select={select} setSelect={setSelect} refetch={refetch} question={q} survey={survey} />)}
 
-                 </div> <div style={{ flex: 1 }}> 
-
-
                  </div>
+{/*            <div style={{ flex: 1 }}> 
+
+
+                 </div> */}
 
              </div>  <footer style={{ textAlign: 'center', padding: '10px' }}>
                  <p>
