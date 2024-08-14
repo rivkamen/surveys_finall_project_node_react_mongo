@@ -10,10 +10,10 @@ const DeleteDial=(props)=>{
    const [deleteFunc, {isError, error, isSuccess,data}] =
    useDeleteSurveyMutation()
    
-   const del = (e) => {
+   const del = async(e) => {
    //e.preventDefault();
 //    console.log('id:'+survey._id);
-   deleteFunc({_id:survey._id}).then(()=>refetch()) 
+  await deleteFunc({_id:survey._id}).then(()=>refetch()) 
    window.location.reload(true)
 
 
