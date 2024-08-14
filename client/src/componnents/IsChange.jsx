@@ -14,7 +14,7 @@ const IsChange=(props)=>{
    const changestatus = (e) => {
     //    e.preventDefault();
        changeStatusFunc({_id:survey._id,status:"closed"}).then(refetch())
-       window.location.reload(true)
+       // window.location.reload(true)
 
        };
     const footerContent = (
